@@ -1,0 +1,25 @@
+.SearchBarDiv {
+  margin-top: 5%;
+  margin-left: 5%;
+  display: flex;
+  align-items: center;
+  .SearchBarInput {
+    width: 40%;
+    height: 10vh;
+    border: none;
+    outline: none;
+    border-radius: 15px;
+    box-shadow: -1px 3px 10px 0px rgba(0, 0, 0, 0.1);
+    font-family: Cursive, Fantasy;
+    font-size: 100%;
+    padding-left: 50px;
+  }
+
+  .SearchIcon {
+    position: relative;
+    left: 50px;
+    padding-right: 10px;
+    color: rgba(0, 0, 0, 0.5);
+    // border-right: 2px rgba(0, 0, 0, 0.1) solid;
+  }
+}
