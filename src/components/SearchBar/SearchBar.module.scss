@@ -1,25 +1,82 @@
-.SearchBarDiv {
+$iconWidth: 35px;
+
+.MainSearchDiv {
   margin-top: 5%;
   margin-left: 5%;
-  display: flex;
-  align-items: center;
-  .SearchBarInput {
-    width: 40%;
-    height: 10vh;
+  width: 40%;
+  .SearchBarDiv {
+    position: relative;
+    display: flex;
+    align-items: center;
+    .SearchIcon {
+      z-index: 2;
+      position: relative;
+      max-width: 35px;
+      min-width: 35px;
+      left: 50px;
+      padding-right: 10px;
+      color: rgba(0, 0, 0, 0.5);
+    }
+    .SearchBarClearLabel {
+      position: absolute;
+      text-decoration: underline;
+      font-size: small;
+      margin-right: 5%;
+      left: 90%;
+      z-index: 1;
+    }
+
+    .SearchBarInput {
+      width: 100%;
+      height: 10vh;
+      border: none;
+      outline: none;
+      z-index: 1;
+      border-radius: 15px;
+      box-shadow: -1px 3px 10px 0px rgba(0, 0, 0, 0.1);
+      font-family: Cursive, Fantasy;
+      font-size: 100%;
+      padding-left: 50px;
+      transition: 6s;
+    }
+    .SearchBarInputFull {
+      width: 100%;
+      height: 10vh;
+      border: none;
+      outline: none;
+      z-index: 1;
+      border-radius: 15px;
+      box-shadow: -1px -9px 10px -4px rgba(0, 0, 0, 0.1);
+      font-family: Cursive, Fantasy;
+      font-size: 100%;
+      padding-left: 50px;
+      transition: 0.5s;
+    }
+  }
+  .SearchResults {
     border: none;
     outline: none;
-    border-radius: 15px;
-    box-shadow: -1px 3px 10px 0px rgba(0, 0, 0, 0.1);
-    font-family: Cursive, Fantasy;
-    font-size: 100%;
-    padding-left: 50px;
-  }
-
-  .SearchIcon {
     position: relative;
-    left: 50px;
-    padding-right: 10px;
-    color: rgba(0, 0, 0, 0.5);
-    // border-right: 2px rgba(0, 0, 0, 0.1) solid;
+    bottom: 25px;
+    left: 35px;
+    border-radius: 15px;
+    border: none;
+    height: 0vh;
+    width: calc(100% - $iconWidth);
+    box-shadow: -1px 3px 10px 0px rgba(0, 0, 0, 0.1);
+    transition: 1s;
+  }
+  .SearchResultsFull {
+    transition: 1s;
+    border: none;
+    outline: none;
+    position: relative;
+    bottom: 25px;
+    left: $iconWidth;
+    border-radius: 15px;
+    border: none;
+    height: 40vh;
+    width: calc(100% - $iconWidth);
+    box-shadow: -1px 3px 10px 0px rgba(0, 0, 0, 0.1);
   }
 }
