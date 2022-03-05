@@ -1,0 +1,14 @@
+@import "styles/mixins.scss";
+.SearchResults {
+  @include SearchResults;
+  transition: 1s;
+  padding-top: 30px;
+  visibility: hidden;
+  height: 0vh;
+}
+.SearchResultsFull {
+  @include SearchResults;
+  transition: 0.7s;
+  padding-top: 30px;
+  height: 40vh;
+}

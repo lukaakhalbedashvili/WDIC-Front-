@@ -2,7 +2,9 @@ import React, { useState } from "react"
 import Styles from "./SearchBar.module.scss"
 import { CircularProgress } from "@mui/material"
 import { IoIosSearch } from "react-icons/io"
+import SearchResults from "../SearchResults/SearchResults"
 import classnames from "classnames"
+
 const SearchBar = () => {
   const [input, setInput] = useState("")
   return (
@@ -23,18 +25,20 @@ const SearchBar = () => {
           })}
           spellCheck={false}
           onChange={(e) => setInput(e.target.value)}
+          placeholder="Searching is easier "
         />
         {input.length > 0 && (
           <p className={Styles.SearchBarClearLabel}>Clear</p>
         )}
       </div>
-
       <div
         className={classnames({
           [Styles.SearchResults]: input.length < 1,
           [Styles.SearchResultsFull]: input.length > 0,
         })}
-      ></div>
+      >
+        <SearchResults input={input} />
+      </div>
     </div>
   )
 }
