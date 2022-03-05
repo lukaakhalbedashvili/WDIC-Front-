@@ -11,14 +11,14 @@ const SingleSearchResult = ({ input }: { input: string }) => {
     >
       <div className={Styles.SingleResultImage}>
         <Image
-          src="https://firebasestorage.googleapis.com/v0/b/green-b3fdd.appspot.com/o/images%2F19a97b1db5709c9a0cdaf408adfcc1b3325c74c6_2_690x388.jpeg?alt=media&token=6181058f-7437-416a-a406-edad4b5808c8"
-          width={50}
-          height={50}
+          src="https://firebasestorage.googleapis.com/v0/b/green-b3fdd.appspot.com/o/images%2FVAJA.JPG?alt=media&token=f8764540-f9f6-4970-9c45-304387980543"
+          width={40}
+          height={40}
           alt="CompanyName"
         />
       </div>
       <div className={Styles.SingleResultNameAndStatusDiv}>
-        <h3 className={Styles.SingleResultStatus}>Luarsab Tatqaridze</h3>
+        <h4 className={Styles.SingleResultStatus}>Luarsab Tatqaridze</h4>
         <p className={Styles.SingleResultName}>saxeli</p>
       </div>
     </div>

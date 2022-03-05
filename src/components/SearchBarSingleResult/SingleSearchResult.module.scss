@@ -1,17 +1,29 @@
+$iconWidth: 35px;
 @mixin MainSingleDivElements {
-  margin: auto;
   margin-bottom: 2%;
   width: 90%;
   display: flex;
   align-items: center;
+  height: 8vh;
+
   .SingleResultImage {
-    margin-left: 5%;
-    background-color: green;
+    display: flex;
+    align-items: center;
+    margin-left: $iconWidth/2;
     border-radius: 10px;
+    background-color: green;
     overflow: hidden;
-    height: 5%;
   }
   .SingleResultNameAndStatusDiv {
+    .SingleResultName {
+      font-size: small;
+      font-weight: 30;
+      color: #aaa6a6;
+    }
+
+    .SingleResultStatus {
+      font-size: medium;
+    }
     * {
       margin: 0%;
       padding: 0%;
