@@ -4,7 +4,6 @@ import Image from "next/image"
 const SingleSearchResult = ({ input }: { input: string }) => {
   return (
     <div
-      // className={Styles.MainSingleResultDiv}
       className={classnames({
         [Styles.MainSingleResultDiv]: input.length > 0,
         [Styles.MainSingleResultDivUnmounting]: input.length < 1,

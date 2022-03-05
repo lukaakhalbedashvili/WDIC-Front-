@@ -2,6 +2,8 @@ import classnames from "classnames"
 import SingleSearchResult from "../SearchBarSingleResult/SingleSearchResult.module"
 import Styles from "./SearchResults.module.scss"
 const SearchResults = ({ input }: { input: string }) => {
+  const test = [1, 2]
+
   return (
     <div
       className={classnames({
@@ -9,7 +11,9 @@ const SearchResults = ({ input }: { input: string }) => {
         [Styles.SearchResultsFull]: input.length > 0,
       })}
     >
-      <SingleSearchResult input={input} />
+      {test.map((item) => (
+        <SingleSearchResult input={input} key={item} />
+      ))}
     </div>
   )
 }
