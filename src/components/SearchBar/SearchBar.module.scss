@@ -1,8 +1,8 @@
 $iconWidth: 35px;
 @import "styles/mixins.scss";
 .MainSearchDiv {
-  margin-top: 5%;
-  margin-left: 5%;
+  margin: auto;
+  margin-top: 1%;
   width: 40%;
   .SearchBarDiv {
     position: relative;
@@ -21,8 +21,7 @@ $iconWidth: 35px;
       position: absolute;
       text-decoration: underline;
       font-size: small;
-      margin-right: 5%;
-      left: 90%;
+      left: calc(100% - 50px);
       z-index: 1;
     }
 
@@ -36,5 +35,11 @@ $iconWidth: 35px;
       transition: 0.5s;
       box-shadow: -1px -9px 10px -4px rgba(0, 0, 0, 0.1);
     }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .MainSearchDiv {
+    width: 80%;
   }
 }
