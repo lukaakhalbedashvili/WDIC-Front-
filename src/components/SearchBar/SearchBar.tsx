@@ -26,6 +26,8 @@ const SearchBar = () => {
           spellCheck={false}
           onChange={(e) => setInput(e.target.value)}
           placeholder="Searching is easier "
+          role="search"
+          name="search"
         />
         {input.length > 0 && (
           <p className={Styles.SearchBarClearLabel}>Clear</p>
