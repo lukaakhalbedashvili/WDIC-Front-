@@ -1,0 +1,20 @@
+.main {
+  display: flex;
+  border-bottom: 0.5px #bfd3f0 solid;
+  .buttonItem {
+    width: 25%;
+    display: flex;
+    align-items: center;
+    margin-left: 2%;
+    .stageLabel {
+      margin-left: 3%;
+    }
+    .stageIndex {
+      text-align: center;
+      background-color: pink;
+      width: 30px;
+      height: 30px;
+      border-radius: 5px;
+    }
+  }
+}

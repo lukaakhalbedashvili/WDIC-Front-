@@ -1,0 +1,27 @@
+.mainGeneralInfoDiv {
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: -1px 3px 10px 0px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  height: 90%;
+  border-radius: 15px;
+  display: flex;
+  .photo {
+    position: relative;
+    width: 35%;
+    border-radius: 15px;
+    img {
+      border-radius: 15px 0 0 15px;
+    }
+  }
+  .content {
+    margin: auto;
+    height: 90%;
+    width: 60%;
+    // background-color: yellow;
+  }
+}

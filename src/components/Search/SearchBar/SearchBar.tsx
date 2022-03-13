@@ -24,6 +24,7 @@ const SearchBar = () => {
             [Styles.SearchBarInput]: input.length < 1,
           })}
           spellCheck={false}
+          autoComplete="off"
           onChange={(e) => setInput(e.target.value)}
           placeholder="Searching is easier "
           role="search"
