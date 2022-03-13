@@ -11,7 +11,7 @@ const SearchResults = ({ input }: { input: string }) => {
         [Styles.SearchResultsFull]: input.length > 0,
       })}
     >
-      {test.map((item) => (
+      {test.map(item => (
         <SingleSearchResult input={input} key={item} />
       ))}
     </div>
