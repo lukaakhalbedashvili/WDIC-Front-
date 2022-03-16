@@ -1,4 +1,4 @@
-.mainGeneralInfoDiv {
+.main {
   background-color: white;
   border-radius: 15px;
   box-shadow: -1px 3px 10px 0px rgba(0, 0, 0, 0.1);
@@ -19,9 +19,33 @@
     }
   }
   .content {
-    margin: auto;
-    height: 90%;
-    width: 60%;
-    // background-color: yellow;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 65%;
+
+    .submitBtnDiv {
+      width: 90%;
+      height: 10%;
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 5%;
+
+      .submitBtn {
+        box-shadow: -1px 3px 10px 0px rgba(0, 0, 0, 0.1);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        background-color: rgb(235, 160, 172);
+        height: 100%;
+        width: 30%;
+      }
+      .submitBtn:hover {
+        transform: 2s;
+        background-color: pink;
+        cursor: pointer;
+      }
+    }
   }
 }

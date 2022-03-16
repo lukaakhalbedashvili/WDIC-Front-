@@ -1,6 +1,12 @@
 import Styles from "./RegisterStage.module.scss"
+import { context } from "../../RegisterCompanyContext"
+import { useContext } from "react"
 const RegisterStage = () => {
-  const stages = ["SignUP", "General", "Description", "timing"]
+  const abaaba = useContext(context)
+  console.log("ar unda imushaos wesit", abaaba)
+
+  const stages = ["SignUP", "General"]
+  // const stages = ["SignUP", "General", "Description", "timing"]
 
   return (
     <div className={Styles.main}>

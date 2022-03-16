@@ -1,0 +1,37 @@
+.main {
+  width: 90%;
+  height: 80%;
+  .stageLabel {
+    margin: 5% 0 5% 0;
+  }
+  .forms {
+    $columnGap: 6%;
+    height: 30%;
+    display: grid;
+    grid-template-columns: (50% - $columnGap/2) (50% - $columnGap/2);
+    grid-template-rows: 40% 40%;
+    grid-row-gap: 25%;
+    grid-column-gap: $columnGap;
+    div {
+      p {
+        padding: 0;
+        margin-bottom: 5px;
+        margin-top: 5px;
+        font-size: small;
+      }
+      input {
+        border-radius: 10px;
+        border: none;
+        outline: none;
+        padding-left: 5%;
+        border: 1px solid black;
+        width: 100%;
+        height: 90%;
+      }
+      input:focus {
+        border: none;
+        outline: 2px solid #bfd3f0;
+      }
+    }
+  }
+}
