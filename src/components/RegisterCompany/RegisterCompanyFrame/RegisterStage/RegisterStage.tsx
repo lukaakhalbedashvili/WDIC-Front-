@@ -6,7 +6,6 @@ const RegisterStage = () => {
 
   const stages = ["SignUP", "General"]
   const handleTest = () => {
-    console.log(index, "aiii")
     setIndex(index + 1)
   }
 
