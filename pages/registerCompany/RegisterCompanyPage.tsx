@@ -1,12 +1,11 @@
-import RegisterCompanyFrame from "src/components/RegisterCompany/RegisterCompanyFrame/RegisterCompanyFrame"
-import GeneralInfo from "src/components/RegisterCompany/GeneralInfo/GeneralInfo"
-import SignUP from "src/components/Auth/SignUP/SignUP"
-const stages = [<SignUP key="signUp" />, <GeneralInfo key="generalInfo" />]
+import RegCom from "src/components/RegisterCompany/RegisterCompanyFrame/RegCom"
+import RegisterCompanyProvider from "src/components/RegisterCompany/RegisterCompanyFrame/context/RegisterCompanyProvider"
+
 const RegisterCompanyPage = () => {
   return (
-    <>
-      <RegisterCompanyFrame>{stages[0]}</RegisterCompanyFrame>
-    </>
+    <RegisterCompanyProvider>
+      <RegCom />
+    </RegisterCompanyProvider>
   )
 }
 export default RegisterCompanyPage

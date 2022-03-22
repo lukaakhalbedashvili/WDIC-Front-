@@ -1,8 +1,14 @@
 import Styles from "./RegisterCompanyFrame.module.scss"
 import Image from "next/image"
 import { registerCompanyFrameImage } from "src/utils/consts"
-import RegisterStage from "./RegisterStage/RegisterStage"
+import RegisterStage from "../RegisterStage/RegisterStage"
+import { useContext } from "react"
+import { contextRG } from "../context/companyContext"
 const RegisterCompanyFrame: React.FC = ({ children }) => {
+  const { index, setIndex } = useContext(contextRG)
+  const hanldeSubmit: () => void = () => {
+    setIndex(index + 1)
+  }
   return (
     <div className={Styles.main}>
       <div className={Styles.photo}>
@@ -12,7 +18,9 @@ const RegisterCompanyFrame: React.FC = ({ children }) => {
         <RegisterStage />
         {children}
         <div className={Styles.submitBtnDiv}>
-          <button className={Styles.submitBtn}>Submit</button>
+          <button className={Styles.submitBtn} onClick={() => hanldeSubmit()}>
+            Submit
+          </button>
         </div>
       </div>
     </div>

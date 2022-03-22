@@ -1,19 +1,23 @@
 import Styles from "./RegisterStage.module.scss"
-import { context } from "../../RegisterCompanyContext"
 import { useContext } from "react"
+import { contextRG } from "../context/companyContext"
 const RegisterStage = () => {
-  const abaaba = useContext(context)
-  console.log("ar unda imushaos wesit", abaaba)
+  const { index, setIndex } = useContext(contextRG)
 
   const stages = ["SignUP", "General"]
-  // const stages = ["SignUP", "General", "Description", "timing"]
+  const handleTest = () => {
+    console.log(index, "aiii")
+    setIndex(index + 1)
+  }
 
   return (
     <div className={Styles.main}>
       {stages.map((item, index) => (
         <div key={item} className={Styles.buttonItem}>
           <p className={Styles.stageIndex}>{index + 1}</p>
-          <p className={Styles.stageLabel}>{item}</p>
+          <p className={Styles.stageLabel} onClick={() => handleTest()}>
+            {item}
+          </p>
         </div>
       ))}
     </div>

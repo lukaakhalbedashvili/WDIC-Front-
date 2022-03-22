@@ -14,7 +14,7 @@ const SignUP = () => {
           return (
             <div key={item}>
               <p>{item}</p>
-              <input name={item} />
+              <input name={item} spellCheck={false} autoComplete="false" />
             </div>
           )
         })}
