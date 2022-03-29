@@ -5,6 +5,12 @@
   border-bottom: 0.5px #bfd3f0 solid;
   margin-top: 5%;
   .buttonItem {
+    &.Active {
+      .stageIndex {
+        color: white;
+        background-color: pink;
+      }
+    }
     width: 25%;
     display: flex;
     align-items: center;
@@ -13,9 +19,15 @@
       margin-left: 3%;
     }
     .stageIndex {
-      text-align: center;
-      color: white;
-      background-color: pink;
+      &.done {
+        color: green;
+        background-color: #ecf3fe;
+      }
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #9fa1b1;
+      background-color: #f9f8fb;
       width: 25px;
       height: 25px;
       border-radius: 5px;

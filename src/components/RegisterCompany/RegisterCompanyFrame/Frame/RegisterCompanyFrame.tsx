@@ -5,9 +5,9 @@ import RegisterStage from "../RegisterStage/RegisterStage"
 import { useContext } from "react"
 import { contextRG } from "../context/companyContext"
 const RegisterCompanyFrame: React.FC = ({ children }) => {
-  const { index, setIndex } = useContext(contextRG)
+  const { index, setIndex, stages } = useContext(contextRG)
   const hanldeSubmit: () => void = () => {
-    setIndex(index + 1)
+    index < stages.length - 1 && setIndex(index + 1)
   }
   return (
     <div className={Styles.main}>
@@ -19,7 +19,7 @@ const RegisterCompanyFrame: React.FC = ({ children }) => {
         {children}
         <div className={Styles.submitBtnDiv}>
           <button className={Styles.submitBtn} onClick={() => hanldeSubmit()}>
-            Submit
+            {index < stages.length - 1 ? "Next" : "Submit"}
           </button>
         </div>
       </div>
