@@ -13,13 +13,19 @@
     grid-row-gap: 25%;
     grid-column-gap: $columnGap;
     div {
-      p {
+      .inputLabel {
+        &.error {
+          color: red;
+        }
         padding: 0;
         margin-bottom: 5px;
         margin-top: 5px;
         font-size: small;
       }
-      input {
+      .SignUPInput {
+        &.error {
+          border: 1px solid red;
+        }
         border-radius: 10px;
         border: none;
         outline: none;

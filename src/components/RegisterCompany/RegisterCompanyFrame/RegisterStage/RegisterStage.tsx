@@ -6,7 +6,7 @@ import { MdDone } from "react-icons/md"
 const RegisterStage = () => {
   const { index, setIndex, stages } = useContext(contextRG)
   const handleLabelClick = (itemIndex: number) => {
-    setIndex(itemIndex)
+    itemIndex < index ? setIndex(itemIndex) : null
   }
   return (
     <div className={Styles.main}>

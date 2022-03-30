@@ -4,6 +4,8 @@ type registerCompanyContext = {
   setIndex: (newIndex: number) => void
   stages: string[]
   setStages: (newStages: [string]) => void
+  errors: object
+  setErrors: (newErrors: object) => void
 }
 
 export const contextRG = createContext<registerCompanyContext>({
@@ -13,6 +15,10 @@ export const contextRG = createContext<registerCompanyContext>({
   },
   stages: [],
   setStages: () => {
+    //donothing
+  },
+  errors: [],
+  setErrors: () => {
     //donothing
   },
 })

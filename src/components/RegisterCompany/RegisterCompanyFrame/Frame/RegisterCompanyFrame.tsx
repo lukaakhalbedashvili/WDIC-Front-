@@ -4,10 +4,12 @@ import { registerCompanyFrameImage } from "src/utils/consts"
 import RegisterStage from "../RegisterStage/RegisterStage"
 import { useContext } from "react"
 import { contextRG } from "../context/companyContext"
+import classNames from "classnames"
 const RegisterCompanyFrame: React.FC = ({ children }) => {
-  const { index, setIndex, stages } = useContext(contextRG)
+  const { index, setIndex, stages, errors } = useContext(contextRG)
+  const errorsLength = Object.keys(errors).length
   const hanldeSubmit: () => void = () => {
-    index < stages.length - 1 && setIndex(index + 1)
+    errorsLength === 0 && index < stages.length - 1 && setIndex(index + 1)
   }
   return (
     <div className={Styles.main}>
@@ -18,7 +20,14 @@ const RegisterCompanyFrame: React.FC = ({ children }) => {
         <RegisterStage />
         {children}
         <div className={Styles.submitBtnDiv}>
-          <button className={Styles.submitBtn} onClick={() => hanldeSubmit()}>
+          <button
+            disabled={errorsLength > 1}
+            className={classNames({
+              [Styles.submitBtn]: true,
+              [Styles.disabled]: errorsLength > 0,
+            })}
+            onClick={() => hanldeSubmit()}
+          >
             {index < stages.length - 1 ? "Next" : "Submit"}
           </button>
         </div>
@@ -26,5 +35,4 @@ const RegisterCompanyFrame: React.FC = ({ children }) => {
     </div>
   )
 }
-
 export default RegisterCompanyFrame
