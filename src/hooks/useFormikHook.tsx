@@ -1,7 +1,10 @@
+import { useContext } from "react"
 import { useFormik } from "formik"
+import { contextRG } from "src/components/RegisterCompany/RegisterCompanyFrame/context/companyContext"
 import * as Yup from "yup"
 
 const useFormikSchema = () => {
+  const { singUpInputs } = useContext(contextRG)
   type initValueType = {
     [firstName: string]: string
     password: string
@@ -13,11 +16,20 @@ const useFormikSchema = () => {
     emailAddress?: string
     repeatPassword?: string
   }
+  const findValue = (inputName: string) => {
+    let retVal = ""
+    singUpInputs.forEach(item => {
+      if (item.name === inputName) {
+        retVal = item.value
+      }
+    })
+    return retVal
+  }
   const initValues: initValueType = {
-    firstName: "",
-    password: "",
-    emailAddress: "",
-    repeatPassword: "",
+    firstName: findValue("firstName"),
+    password: findValue("password"),
+    emailAddress: findValue("emailAddress"),
+    repeatPassword: findValue("repeatPassword"),
   }
   const signUpValidation = useFormik({
     initialValues: initValues,
@@ -40,7 +52,9 @@ const useFormikSchema = () => {
       firstName: Yup.string()
         .max(15, "must be less than 15")
         .required("required"),
-      password: Yup.string().min(6, "must be at least 6 characters"),
+      password: Yup.string()
+        .required("required")
+        .min(6, "must be at least 6 characters"),
     }),
     onSubmit: values => {
       console.log(values)

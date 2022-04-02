@@ -9,7 +9,6 @@ const stagesComponents = [
 ]
 const RegCom = () => {
   const { index } = useContext(contextRG)
-
   return <RegisterCompanyFrame>{stagesComponents[index]}</RegisterCompanyFrame>
 }
 

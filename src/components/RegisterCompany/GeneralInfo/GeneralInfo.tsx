@@ -1,8 +1,10 @@
 import Styles from "./GeneralInfo.module.scss"
+// import Input from "src/library/Input"
 const GeneralInfo = () => {
   return (
     <div className={Styles.main}>
-      <h2>GenaralInfo</h2>
+      {/* <Input /> */}
+      <input />
     </div>
   )
 }

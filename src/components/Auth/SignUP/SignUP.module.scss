@@ -22,22 +22,6 @@
         margin-top: 5px;
         font-size: small;
       }
-      .SignUPInput {
-        &.error {
-          border: 1px solid red;
-        }
-        border-radius: 10px;
-        border: none;
-        outline: none;
-        padding-left: 5%;
-        border: 1px solid black;
-        width: 100%;
-        height: 90%;
-      }
-      input:focus {
-        border: none;
-        outline: 2px solid #bfd3f0;
-      }
     }
   }
 }

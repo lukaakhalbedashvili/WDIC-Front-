@@ -1,7 +1,12 @@
 export const registerCompanyFrameImage = "/images/registerCompanyIMG.JPG"
-export const SingUpIputs = [
-  { label: "First Name", name: "firstName", type: "text" },
-  { label: "Password", name: "password", type: "password" },
-  { label: "Email Address", name: "emailAddress", type: "email" },
-  { label: "Repeat Password", name: "repeatPassword", type: "password" },
+export const singUpIputsArray = [
+  { label: "First Name", name: "firstName", type: "text", value: "" },
+  { label: "Password", name: "password", type: "password", value: "" },
+  { label: "Email Address", name: "emailAddress", type: "email", value: "" },
+  {
+    label: "Repeat Password",
+    name: "repeatPassword",
+    type: "password",
+    value: "",
+  },
 ]

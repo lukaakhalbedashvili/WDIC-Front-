@@ -1,12 +1,16 @@
 import Styles from "./SignUP.module.scss"
-import { SingUpIputs } from "src/utils/consts"
+import { useRef } from "react"
 import useFormikSchema from "src/hooks/useFormikHook"
 import classNames from "classnames"
 import { useEffect } from "react"
 import { useContext } from "react"
 import { contextRG } from "src/components/RegisterCompany/RegisterCompanyFrame/context/companyContext"
-const SignUP = () => {
-  const { setErrors, errors } = useContext(contextRG)
+import Input from "src/library/Input"
+import useSetCurForm from "src/hooks/useSetCurForm"
+const SignUP: React.FC = () => {
+  const { setErrors, singUpInputs } = useContext(contextRG)
+  console.log(singUpInputs)
+  const formSubmitBTN = useRef<HTMLButtonElement>(null)
   const { signUpValidation } = useFormikSchema()
   const formik = signUpValidation
   useEffect(() => {
@@ -14,12 +18,16 @@ const SignUP = () => {
       setErrors(formik.errors)
     }
   }, [formik.errors])
-  console.log(errors, "IVANISHVILI")
+  useSetCurForm(formSubmitBTN.current)
   return (
     <div className={Styles.main}>
       <h3 className={Styles.stageLabel}>SignUP</h3>
-      <form className={Styles.forms} autoComplete="off">
-        {SingUpIputs.map(item => {
+      <form
+        className={Styles.forms}
+        autoComplete="off"
+        onSubmit={formik.handleSubmit}
+      >
+        {singUpInputs.map(item => {
           const inputErrorStatus =
             formik.touched[item.name] && formik.errors[item.name]
           return (
@@ -32,13 +40,9 @@ const SignUP = () => {
               >{`${[item.name]} ${
                 inputErrorStatus ? formik.errors[item.name] : ""
               }`}</p>
-              <input
-                className={classNames({
-                  [Styles.SignUPInput]: true,
-                  [Styles.error]: inputErrorStatus,
-                })}
+              <Input
                 name={item.name}
-                spellCheck={false}
+                error={!!inputErrorStatus}
                 type={item.type}
                 value={formik.values[item.name]}
                 onChange={formik.handleChange}
@@ -47,6 +51,11 @@ const SignUP = () => {
             </div>
           )
         })}
+        <button
+          type="submit"
+          style={{ visibility: "hidden" }}
+          ref={formSubmitBTN}
+        ></button>
       </form>
     </div>
   )
