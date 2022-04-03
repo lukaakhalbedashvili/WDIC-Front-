@@ -1,7 +1,6 @@
 import Styles from "./SignUP.module.scss"
 import { useRef } from "react"
 import useFormikSchema from "src/hooks/useFormikHook"
-import classNames from "classnames"
 import { useEffect } from "react"
 import { useContext } from "react"
 import { contextRG } from "src/components/RegisterCompany/RegisterCompanyFrame/context/companyContext"
@@ -9,7 +8,6 @@ import Input from "src/library/Input"
 import useSetCurForm from "src/hooks/useSetCurForm"
 const SignUP: React.FC = () => {
   const { setErrors, singUpInputs } = useContext(contextRG)
-  console.log(singUpInputs)
   const formSubmitBTN = useRef<HTMLButtonElement>(null)
   const { signUpValidation } = useFormikSchema()
   const formik = signUpValidation
@@ -32,17 +30,10 @@ const SignUP: React.FC = () => {
             formik.touched[item.name] && formik.errors[item.name]
           return (
             <div key={item.name}>
-              <p
-                className={classNames({
-                  [Styles.inputLabel]: true,
-                  [Styles.error]: inputErrorStatus,
-                })}
-              >{`${[item.name]} ${
-                inputErrorStatus ? formik.errors[item.name] : ""
-              }`}</p>
               <Input
                 name={item.name}
                 error={!!inputErrorStatus}
+                errorMessage={formik.errors[item.name]}
                 type={item.type}
                 value={formik.values[item.name]}
                 onChange={formik.handleChange}

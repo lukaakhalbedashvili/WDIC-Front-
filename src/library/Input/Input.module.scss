@@ -1,28 +1,41 @@
 .main {
-  height: 90%;
-  display: flex;
-  align-items: center;
-  position: relative;
-  .errorIcon {
-    color: red;
-    position: absolute;
-    right: 10px;
-    height: 90%;
-  }
-  input:focus {
-    border: none;
-    outline: 2px solid #bfd3f0;
-  }
-  .SignUPInput {
+  height: 100%;
+  .inputLabel {
     &.error {
-      border: 1px solid red;
+      color: red;
     }
-    border-radius: 10px;
-    border: none;
-    outline: none;
-    padding-left: 5%;
-    border: 1px solid black;
-    width: 100%;
-    height: 100%;
+    padding: 0;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    font-size: small;
+  }
+  .inputDiv {
+    height: 90%;
+    display: flex;
+    align-items: center;
+    position: relative;
+    .errorIcon {
+      color: red;
+      position: absolute;
+      right: 10px;
+      height: 90%;
+    }
+    input:focus {
+      border: none;
+      outline: 2px solid #bfd3f0;
+    }
+    .input {
+      &.error {
+        background-color: #fff2f2;
+        border: 1px solid red;
+      }
+      border-radius: 10px;
+      border: none;
+      outline: none;
+      padding-left: 5%;
+      border: 1px solid rgb(114, 111, 111);
+      width: 100%;
+      height: 100%;
+    }
   }
 }

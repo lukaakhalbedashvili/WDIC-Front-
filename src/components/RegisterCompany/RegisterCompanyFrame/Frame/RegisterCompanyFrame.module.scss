@@ -24,7 +24,10 @@
     align-items: center;
     justify-content: center;
     width: 65%;
-
+    .children {
+      height: 90%;
+      width: 90%;
+    }
     .submitBtnDiv {
       width: 90%;
       height: 10%;

@@ -1,27 +1,16 @@
 .main {
-  width: 90%;
-  height: 80%;
+  width: 100%;
+  height: 90%;
   .stageLabel {
     margin: 5% 0 5% 0;
   }
   .forms {
     $columnGap: 6%;
-    height: 30%;
+    height: 35%;
     display: grid;
     grid-template-columns: (50% - $columnGap/2) (50% - $columnGap/2);
     grid-template-rows: 40% 40%;
     grid-row-gap: 25%;
     grid-column-gap: $columnGap;
-    div {
-      .inputLabel {
-        &.error {
-          color: red;
-        }
-        padding: 0;
-        margin-bottom: 5px;
-        margin-top: 5px;
-        font-size: small;
-      }
-    }
   }
 }

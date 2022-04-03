@@ -1,4 +1,13 @@
-.mainGeneralInfoDiv {
-  background-color: red;
-  height: 80%;
+.main {
+  height: 90%;
+  width: 100%;
+  .GeneralForm {
+    display: flex;
+    flex-direction: column;
+    height: 90%;
+    .inputDiv {
+      height: 15%;
+      width: 50%;
+    }
+  }
 }

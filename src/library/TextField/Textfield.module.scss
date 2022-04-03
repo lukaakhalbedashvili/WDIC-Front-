@@ -1,0 +1,26 @@
+.textareaDiv {
+  margin-top: 5%;
+  display: flex;
+  flex-direction: column;
+  height: 60%;
+  label {
+    font-size: small;
+    padding: 0;
+    margin-bottom: 5px;
+    margin-top: 5px;
+  }
+  textarea {
+    padding: 1% 2% 1% 2%;
+    height: 80%;
+    resize: none;
+    overflow: auto;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    border: 1px solid rgb(114, 111, 111);
+  }
+  textarea:focus {
+    border: none;
+    outline: 2px solid #bfd3f0;
+  }
+}

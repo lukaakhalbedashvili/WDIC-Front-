@@ -4,7 +4,7 @@ import { contextRG } from "src/components/RegisterCompany/RegisterCompanyFrame/c
 import * as Yup from "yup"
 
 const useFormikSchema = () => {
-  const { singUpInputs } = useContext(contextRG)
+  const { singUpInputs, setSingUpInputs } = useContext(contextRG)
   type initValueType = {
     [firstName: string]: string
     password: string
@@ -57,7 +57,11 @@ const useFormikSchema = () => {
         .min(6, "must be at least 6 characters"),
     }),
     onSubmit: values => {
-      console.log(values)
+      setSingUpInputs(
+        singUpInputs.map(item => {
+          return { ...item, value: values[item.name] }
+        })
+      )
     },
   })
   return { signUpValidation }

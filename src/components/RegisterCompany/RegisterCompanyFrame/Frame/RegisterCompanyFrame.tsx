@@ -1,11 +1,15 @@
 import Styles from "./RegisterCompanyFrame.module.scss"
 import Image from "next/image"
-import { registerCompanyFrameImage } from "src/utils/consts"
+import {
+  registerCompanyFrameImage,
+  generalCompanyFrameImage,
+} from "src/utils/consts"
 import RegisterStage from "../RegisterStage/RegisterStage"
 import { useContext } from "react"
 import { contextRG } from "../context/companyContext"
 import classNames from "classnames"
 const RegisterCompanyFrame: React.FC = ({ children }) => {
+  const sideFrameIMG = [registerCompanyFrameImage, generalCompanyFrameImage]
   const { index, setIndex, stages, errors, submitBtn } = useContext(contextRG)
   const errorsLength = Object.keys(errors).length
   const hanldeSubmit: () => void = () => {
@@ -15,16 +19,11 @@ const RegisterCompanyFrame: React.FC = ({ children }) => {
   return (
     <div className={Styles.main}>
       <div className={Styles.photo}>
-        <Image
-          src={registerCompanyFrameImage}
-          layout="fill"
-          alt="asx"
-          priority
-        />
+        <Image src={sideFrameIMG[index]} layout="fill" alt="asx" priority />
       </div>
       <div className={Styles.content}>
         <RegisterStage />
-        {children}
+        <div className={Styles.children}>{children}</div>
         <div className={Styles.submitBtnDiv}>
           <button
             className={classNames({

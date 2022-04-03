@@ -2,30 +2,39 @@ import Styles from "./Input.module.scss"
 import React from "react"
 import classNames from "classnames"
 import { BsExclamationCircle } from "react-icons/bs"
-type Input = {
-  name: string
-  error: boolean
-  type: string
-  value: string
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
-  onBlur: (e: React.FocusEvent<HTMLInputElement>) => void
-}
-const index = ({ name, error, type, value, onChange, onBlur }: Input) => {
+import { InputType } from "./types"
+const index = ({
+  name,
+  error,
+  errorMessage,
+  type,
+  value,
+  onChange,
+  onBlur,
+}: InputType) => {
   return (
     <div className={Styles.main}>
-      <input
+      <p
         className={classNames({
-          [Styles.SignUPInput]: true,
+          [Styles.inputLabel]: true,
           [Styles.error]: error,
         })}
-        name={name}
-        spellCheck={false}
-        type={type}
-        value={value}
-        onChange={onChange}
-        onBlur={onBlur}
-      />
-      {error && <BsExclamationCircle className={Styles.errorIcon} />}
+      >{`${[name]} ${error ? errorMessage : ""}`}</p>
+      <div className={Styles.inputDiv}>
+        <input
+          className={classNames({
+            [Styles.input]: true,
+            [Styles.error]: error,
+          })}
+          name={name}
+          spellCheck={false}
+          type={type}
+          value={value}
+          onChange={onChange}
+          onBlur={onBlur}
+        />
+        {error && <BsExclamationCircle className={Styles.errorIcon} />}
+      </div>
     </div>
   )
 }
