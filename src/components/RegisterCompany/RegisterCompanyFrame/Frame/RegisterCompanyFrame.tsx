@@ -10,11 +10,20 @@ import { contextRG } from "../context/companyContext"
 import classNames from "classnames"
 const RegisterCompanyFrame: React.FC = ({ children }) => {
   const sideFrameIMG = [registerCompanyFrameImage, generalCompanyFrameImage]
-  const { index, setIndex, stages, errors, submitBtn } = useContext(contextRG)
+  const { index, setIndex, stages, errors, submitBtn, isFormTouched } =
+    useContext(contextRG)
   const errorsLength = Object.keys(errors).length
-  const hanldeSubmit: () => void = () => {
-    errorsLength === 0 && index < stages.length - 1 && setIndex(index + 1)
-    submitBtn && submitBtn.click()
+  // useEffect(() => {
+  //   submitBtn && submitBtn.click()
+  // }, [submitBtn])
+  // console.log(errors, "a")
+
+  const hanldeSubmit: () => void = async () => {
+    await (submitBtn && submitBtn.click())
+    isFormTouched &&
+      errorsLength === 0 &&
+      index < stages.length - 1 &&
+      setIndex(index + 1)
   }
   return (
     <div className={Styles.main}>
@@ -26,6 +35,7 @@ const RegisterCompanyFrame: React.FC = ({ children }) => {
         <div className={Styles.children}>{children}</div>
         <div className={Styles.submitBtnDiv}>
           <button
+            type="button"
             className={classNames({
               [Styles.submitBtn]: true,
               [Styles.disabled]: errorsLength > 0,

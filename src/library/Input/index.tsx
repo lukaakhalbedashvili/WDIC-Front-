@@ -1,9 +1,11 @@
 import Styles from "./Input.module.scss"
-import React from "react"
+import React, { useContext } from "react"
 import classNames from "classnames"
 import { BsExclamationCircle } from "react-icons/bs"
 import { InputType } from "./types"
-const index = ({
+import { contextRG } from "src/components/RegisterCompany/RegisterCompanyFrame/context/companyContext"
+
+const Index = ({
   name,
   error,
   errorMessage,
@@ -12,6 +14,7 @@ const index = ({
   onChange,
   onBlur,
 }: InputType) => {
+  const { setIsFormTouched } = useContext(contextRG)
   return (
     <div className={Styles.main}>
       <p
@@ -32,10 +35,11 @@ const index = ({
           value={value}
           onChange={onChange}
           onBlur={onBlur}
+          onClick={() => setIsFormTouched(true)}
         />
         {error && <BsExclamationCircle className={Styles.errorIcon} />}
       </div>
     </div>
   )
 }
-export default index
+export default Index

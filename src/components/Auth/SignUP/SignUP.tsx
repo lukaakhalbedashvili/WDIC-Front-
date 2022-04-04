@@ -15,7 +15,7 @@ const SignUP: React.FC = () => {
     if (formik.errors) {
       setErrors(formik.errors)
     }
-  }, [formik.errors])
+  }, [formik.errors, setErrors])
   useSetCurForm(formSubmitBTN.current)
   return (
     <div className={Styles.main}>

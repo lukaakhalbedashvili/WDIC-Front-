@@ -7,6 +7,7 @@ const RegisterCompanyProvider: React.FC = ({ children }) => {
   const [errors, setErrors] = useState({})
   const [submitBtn, setSubmitBtn] = useState<HTMLButtonElement>()
   const [singUpInputs, setSingUpInputs] = useState(singUpIputsArray)
+  const [isFormTouched, setIsFormTouched] = useState(false)
 
   const value = {
     index,
@@ -19,6 +20,8 @@ const RegisterCompanyProvider: React.FC = ({ children }) => {
     setSubmitBtn,
     singUpInputs,
     setSingUpInputs,
+    isFormTouched,
+    setIsFormTouched,
   }
   return <contextRG.Provider value={value}>{children}</contextRG.Provider>
 }

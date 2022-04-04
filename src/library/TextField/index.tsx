@@ -6,6 +6,8 @@ const index = () => {
     <div className={Styles.textareaDiv}>
       <label htmlFor="compDescription">description</label>
       <textarea
+        // onFocus={false}
+        className={Styles.textarea}
         placeholder="company description"
         name="compDescription"
         id="compDescription"
