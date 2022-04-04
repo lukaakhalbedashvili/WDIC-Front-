@@ -13,11 +13,6 @@ const RegisterCompanyFrame: React.FC = ({ children }) => {
   const { index, setIndex, stages, errors, submitBtn, isFormTouched } =
     useContext(contextRG)
   const errorsLength = Object.keys(errors).length
-  // useEffect(() => {
-  //   submitBtn && submitBtn.click()
-  // }, [submitBtn])
-  // console.log(errors, "a")
-
   const hanldeSubmit: () => void = async () => {
     await (submitBtn && submitBtn.click())
     isFormTouched &&
@@ -28,7 +23,12 @@ const RegisterCompanyFrame: React.FC = ({ children }) => {
   return (
     <div className={Styles.main}>
       <div className={Styles.photo}>
-        <Image src={sideFrameIMG[index]} layout="fill" alt="asx" priority />
+        <Image
+          src={sideFrameIMG[index]}
+          layout="fill"
+          alt="asx"
+          priority={true}
+        />
       </div>
       <div className={Styles.content}>
         <RegisterStage />
