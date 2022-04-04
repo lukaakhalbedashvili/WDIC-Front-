@@ -1,5 +1,5 @@
-export const registerCompanyFrameImage = "/signup.JPG"
-export const generalCompanyFrameImage = "/generalInfo.JPG"
+export const registerCompanyFrameImage = "/signup.jpg"
+export const generalCompanyFrameImage = "/generalInfo.jpg"
 export const singUpIputsArray = [
   { label: "First Name", name: "firstName", type: "text", value: "" },
   { label: "Password", name: "password", type: "password", value: "" },
