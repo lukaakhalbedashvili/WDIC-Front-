@@ -15,10 +15,16 @@
     display: flex;
     align-items: center;
     .stageLabel {
+      &:hover {
+        cursor: pointer;
+      }
       font-size: small;
       margin-left: 3%;
     }
     .stageIndex {
+      &:hover {
+        cursor: pointer;
+      }
       &.done {
         color: green;
         background-color: #ecf3fe;

@@ -17,8 +17,8 @@ type registerCompanyContext = {
       value: string
     }[]
   ) => void
-  isFormTouched: boolean
-  setIsFormTouched: (newIsFormTouched: boolean) => void
+  isSUFormTouched: boolean
+  setIsSUFormTouched: (newIsFormTouched: boolean) => void
 }
 export const contextRG = createContext<registerCompanyContext>({
   index: 0,
@@ -48,8 +48,8 @@ export const contextRG = createContext<registerCompanyContext>({
   setSingUpInputs: () => {
     //donothing
   },
-  isFormTouched: false,
-  setIsFormTouched: () => {
+  isSUFormTouched: false,
+  setIsSUFormTouched: () => {
     //donothing
   },
 })

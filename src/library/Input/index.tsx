@@ -14,7 +14,7 @@ const Index = ({
   onChange,
   onBlur,
 }: InputType) => {
-  const { setIsFormTouched } = useContext(contextRG)
+  const { setIsSUFormTouched } = useContext(contextRG)
   return (
     <div className={Styles.main}>
       <p
@@ -35,7 +35,7 @@ const Index = ({
           value={value}
           onChange={onChange}
           onBlur={onBlur}
-          onClick={() => setIsFormTouched(true)}
+          onClick={() => setIsSUFormTouched(true)}
         />
         {error && <BsExclamationCircle className={Styles.errorIcon} />}
       </div>

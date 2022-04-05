@@ -11,6 +11,7 @@ const SignUP: React.FC = () => {
   const formSubmitBTN = useRef<HTMLButtonElement>(null)
   const { signUpValidation } = useFormikSchema()
   const formik = signUpValidation
+
   useEffect(() => {
     if (formik.errors) {
       setErrors(formik.errors)

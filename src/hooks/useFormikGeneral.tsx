@@ -1,10 +1,11 @@
 import { useFormik } from "formik"
 import * as Yup from "yup"
-type initValueType = { companyName: string }
+type initValueType = { companyName: string; companyDescription: string }
 
 const useFormikGeneral = () => {
   const initValues: initValueType = {
-    companyName: "LLLL",
+    companyName: "",
+    companyDescription: "",
   }
 
   const generalInfoValidation = useFormik({
@@ -13,12 +14,13 @@ const useFormikGeneral = () => {
       companyName: Yup.string()
         .max(15, "must be less than 15")
         .required("required"),
+      companyDescription: Yup.string().required("required"),
     }),
     onSubmit: values => {
       console.log(values)
     },
   })
-  return generalInfoValidation
+  return { generalInfoValidation }
 }
 
 export default useFormikGeneral

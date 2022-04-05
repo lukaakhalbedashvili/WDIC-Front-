@@ -10,15 +10,12 @@ import { contextRG } from "../context/companyContext"
 import classNames from "classnames"
 const RegisterCompanyFrame: React.FC = ({ children }) => {
   const sideFrameIMG = [registerCompanyFrameImage, generalCompanyFrameImage]
-  const { index, setIndex, stages, errors, submitBtn, isFormTouched } =
+  const { index, setIndex, stages, errors, submitBtn, isSUFormTouched } =
     useContext(contextRG)
   const errorsLength = Object.keys(errors).length
   const hanldeSubmit: () => void = async () => {
-    await (submitBtn && submitBtn.click())
-    isFormTouched &&
-      errorsLength === 0 &&
-      index < stages.length - 1 &&
-      setIndex(index + 1)
+    submitBtn && submitBtn.click()
+    errorsLength === 0 && index < stages.length - 1 && setIndex(index + 1)
   }
   return (
     <div className={Styles.main}>
@@ -28,6 +25,7 @@ const RegisterCompanyFrame: React.FC = ({ children }) => {
           layout="fill"
           alt="asx"
           priority={true}
+          quality={10}
         />
       </div>
       <div className={Styles.content}>
@@ -38,9 +36,10 @@ const RegisterCompanyFrame: React.FC = ({ children }) => {
             type="button"
             className={classNames({
               [Styles.submitBtn]: true,
-              [Styles.disabled]: errorsLength > 0,
+              [Styles.disabled]: errorsLength > 0 || !isSUFormTouched,
             })}
             onClick={() => hanldeSubmit()}
+            disabled={!isSUFormTouched}
           >
             {index < stages.length - 1 ? "Next" : "Submit"}
           </button>
