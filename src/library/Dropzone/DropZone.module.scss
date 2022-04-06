@@ -1,0 +1,36 @@
+.main {
+  &:hover {
+    background-color: #bfd3f0;
+    cursor: pointer;
+  }
+  height: 30%;
+  width: 100%;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  padding-left: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  .ImageDiv {
+    height: 70px;
+    width: 50px;
+    position: relative;
+    margin-top: 1%;
+  }
+  .label {
+    height: 40%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    width: 60%;
+    p {
+      margin: 0%;
+    }
+    .BrowseOption {
+      text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
+      margin-left: 1%;
+    }
+  }
+}

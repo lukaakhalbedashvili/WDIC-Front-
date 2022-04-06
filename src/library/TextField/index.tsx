@@ -9,16 +9,14 @@ type textAreaType = {
   error: boolean
   errorMessage: string | undefined
 }
-const index = ({
-  onChange,
-  value,
+const TextField = ({
+  // onChange,
+  // value,
   name,
-  placeholder,
+  // placeholder,
   error,
   errorMessage,
 }: textAreaType) => {
-  console.log(onChange, value, name, placeholder)
-
   return (
     <div className={Styles.textareaDiv}>
       <label
@@ -41,4 +39,4 @@ const index = ({
   )
 }
 
-export default index
+export default TextField

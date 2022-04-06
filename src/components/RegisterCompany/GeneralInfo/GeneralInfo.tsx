@@ -1,30 +1,20 @@
 import { useRef } from "react"
 import Styles from "./GeneralInfo.module.scss"
-import Input from "src/library/Input"
 import useFormikGeneral from "src/hooks/useFormikGeneral"
 import Textfield from "src/library/TextField"
 import useSetCurForm from "src/hooks/useSetCurForm"
+import Dropzone from "src/library/Dropzone"
+
 const GeneralInfo = () => {
   const submitBTNRef = useRef<HTMLButtonElement | null>(null)
   useSetCurForm(submitBTNRef.current)
   const { generalInfoValidation } = useFormikGeneral()
   const formik = generalInfoValidation
-
   return (
     <div className={Styles.main}>
       <h3>General Info</h3>
       <form className={Styles.GeneralForm} onSubmit={formik.handleSubmit}>
-        <div className={Styles.inputDiv}>
-          <Input
-            name="company Name"
-            value={formik.values.companyName}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            error={!!formik.errors.companyName}
-            type="text"
-            errorMessage={formik.errors.companyName}
-          />
-        </div>
+        <Dropzone />
         <Textfield
           onChange={formik.handleChange}
           value={formik.values.companyDescription}

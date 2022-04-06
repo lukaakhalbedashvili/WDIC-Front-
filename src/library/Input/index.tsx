@@ -5,7 +5,7 @@ import { BsExclamationCircle } from "react-icons/bs"
 import { InputType } from "./types"
 import { contextRG } from "src/components/RegisterCompany/RegisterCompanyFrame/context/companyContext"
 
-const Index = ({
+const Input = ({
   name,
   error,
   errorMessage,
@@ -42,4 +42,4 @@ const Index = ({
     </div>
   )
 }
-export default Index
+export default Input
