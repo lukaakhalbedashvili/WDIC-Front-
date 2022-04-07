@@ -19,6 +19,8 @@ type registerCompanyContext = {
   ) => void
   isSUFormTouched: boolean
   setIsSUFormTouched: (newIsFormTouched: boolean) => void
+  companyPictures: string[]
+  setCompanyPictures: (newCompanyPictures: string[]) => void
 }
 export const contextRG = createContext<registerCompanyContext>({
   index: 0,
@@ -50,6 +52,10 @@ export const contextRG = createContext<registerCompanyContext>({
   },
   isSUFormTouched: false,
   setIsSUFormTouched: () => {
+    //donothing
+  },
+  companyPictures: [],
+  setCompanyPictures: () => {
     //donothing
   },
 })
