@@ -1,6 +1,6 @@
-import React, { useRef, useState } from "react"
+import React, { useRef } from "react"
 import Styles from "./DropZone.module.scss"
-import useUploadToFirebase from "src/services/useUploadPhoto"
+import uploadToFirebase from "src/services/uploadPhoto"
 import Image from "next/image"
 import { uploadImageIcon } from "src/utils/consts"
 import { useContext } from "react"
@@ -11,16 +11,17 @@ import classNames from "classnames"
 //   name: string
 // }
 const DropZone = () => {
-  const [images, setIMages] = useState<FileList>()
   const { companyPictures } = useContext(contextRG)
-  const uploadToFirebase = useUploadToFirebase(images)
-  console.log(uploadToFirebase)
-  // useCallback(uploadToFirebase, [])
+  // const [images, setIMages] = useState<FileList>()
+
   const onCChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files === null) return
-    setIMages(e.target.files)
+    // setIMages(e.target.files)
+    console.log(uploadToFirebase(e.target.files), "YYYY")
   }
   const fileInputRef = useRef<HTMLInputElement>(null)
+  console.log(companyPictures)
+
   return (
     <div
       className={classNames({

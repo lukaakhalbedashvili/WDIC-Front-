@@ -19,14 +19,12 @@ const firebaseConfig = {
 initializeApp(firebaseConfig)
 const storage = getStorage()
 ////////////
-import { useContext } from "react"
-import { contextRG } from "src/components/RegisterCompany/RegisterCompanyFrame/context/companyContext"
-const useUploadToFirebase = (images: FileList | undefined) => {
-  const { companyPictures, setCompanyPictures } = useContext(contextRG)
+const uploadToFirebase = (images: FileList | undefined) => {
   if (!images) {
     return "N"
   }
-  Object.values(images).forEach(image => {
+  return Object.values(images).map(image => {
+    const imageURLS: string[] = []
     const storageRef = ref(storage, `images/${image.name}`)
     const uploadTask = uploadBytesResumable(storageRef, image)
     uploadTask.on(
@@ -48,13 +46,11 @@ const useUploadToFirebase = (images: FileList | undefined) => {
       },
       () => {
         getDownloadURL(uploadTask.snapshot.ref).then(downloadURL => {
-          console.log("File available at", downloadURL)
-          setCompanyPictures([...companyPictures, downloadURL])
+          imageURLS.push(downloadURL)
         })
       }
     )
   })
-  return "N"
 }
 
-export default useUploadToFirebase
+export default uploadToFirebase

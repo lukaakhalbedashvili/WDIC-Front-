@@ -18,8 +18,8 @@ const SingleSearchResult = ({ input }: { input: string }) => {
         />
       </div>
       <div className={Styles.SingleResultNameAndStatusDiv}>
-        <h4 className={Styles.SingleResultStatus}>Luarsab Tatqaridze</h4>
-        <p className={Styles.SingleResultName}>saxeli</p>
+        <h4 className={Styles.SingleResultStatus}>Vaja Pshavela</h4>
+        <p className={Styles.SingleResultName}>Name</p>
       </div>
     </div>
   )
