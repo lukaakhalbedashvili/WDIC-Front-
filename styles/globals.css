@@ -1,20 +1,27 @@
 html,
-body {
+body,
+.dark.theme {
   padding: 0;
   margin: 0;
-  font-family: Cursive, Fantasy, -apple-system, BlinkMacSystemFont, Segoe UI,
+  /* background-color: red; */
+  /* font-family: Cursive, Fantasy, -apple-system, BlinkMacSystemFont, Segoe UI,
     Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-    sans-serif;
+    sans-serif; */
   background-color: #bfd3f0;
 }
 a {
   color: inherit;
   text-decoration: none;
 }
-
+/* .main {
+  background-color: red;
+} */
+.dark.theme {
+  background-color: red;
+}
+/* 
 * {
   box-sizing: border-box;
-  font-family: Cursive, Fantasy, -apple-system, BlinkMacSystemFont, Segoe UI,
-    Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-    sans-serif;
-}
+  font-family: Roboto, Fantasy, -apple-system, BlinkMacSystemFont, Segoe UI,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+} */

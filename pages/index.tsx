@@ -1,8 +1,12 @@
 import type { NextPage } from "next"
-import SearchBar from "src/components/Search/SearchBar/SearchBar"
-
+import Search from "src/components/Search"
+import ThemeProvider from "src/wrappers/Theme/Theme"
 const Home: NextPage = () => {
-  return <SearchBar />
+  return (
+    <ThemeProvider theme="light">
+      <Search />
+    </ThemeProvider>
+  )
 }
 
 export default Home
