@@ -1,11 +1,12 @@
 import type { NextPage } from "next"
 import Search from "src/components/Search"
-import ThemeProvider from "src/wrappers/Theme/Theme"
+import Switch from "src/library/Switch"
 const Home: NextPage = () => {
   return (
-    <ThemeProvider theme="light">
+    <>
+      <Switch />
       <Search />
-    </ThemeProvider>
+    </>
   )
 }
 

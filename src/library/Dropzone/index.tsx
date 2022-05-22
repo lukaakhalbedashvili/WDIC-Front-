@@ -1,71 +1,75 @@
 import React, { useRef } from "react"
 import Styles from "./DropZone.module.scss"
-import uploadToFirebase from "src/services/uploadPhoto"
+import useUploadToFirebase from "src/services/uploadPhoto"
 import Image from "next/image"
 import { uploadImageIcon } from "src/utils/consts"
 import { useContext } from "react"
 import { contextRG } from "src/components/RegisterCompany/RegisterCompanyFrame/context/companyContext"
 import classNames from "classnames"
+import { CircularProgress } from "@mui/material"
+// import Cropper from "react-easy-crop"
 
-// interface File extends Blob {
-//   name: string
-// }
 const DropZone = () => {
-  const { companyPictures } = useContext(contextRG)
-  // const [images, setIMages] = useState<FileList>()
+  const { profilePic, uploadProgress } = useContext(contextRG)
+  const handleUpload = useUploadToFirebase()
+  // const [crop, setCrop] = useState({ x: 0, y: 0 })
 
-  const onCChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files === null) return
-    // setIMages(e.target.files)
-    console.log(uploadToFirebase(e.target.files), "YYYY")
+    handleUpload(e.target.files)
   }
   const fileInputRef = useRef<HTMLInputElement>(null)
-  console.log(companyPictures)
 
   return (
     <div
       className={classNames({
         [Styles.main]: true,
-        [Styles.PicInIt]: companyPictures.length > 1,
+        [Styles.PicInIt]: profilePic.length > 1,
       })}
       onClick={() => fileInputRef.current?.click()}
     >
+      {uploadProgress > 0 && (
+        <CircularProgress variant="determinate" value={uploadProgress} />
+      )}
+
+      {/* <Cropper
+        image={profilePic}
+        aspect={4 / 3}
+        crop={crop}
+        zoom={1}
+        onCropChange={setCrop}
+      /> */}
       <input
-        multiple
         accept="image/png, image/jpeg"
-        onChange={e => onCChange(e)}
+        onChange={e => handleChange(e)}
         type="file"
         style={{ display: "none" }}
         ref={fileInputRef}
       />
-      {companyPictures.length <= 1 && (
-        <div className={Styles.uploadImageDiv}>
-          <Image src={uploadImageIcon} alt="upload image" layout="fill" />
+      {profilePic.length < 1 && uploadProgress < 1 && (
+        <div className={Styles.DefaultIcon}>
+          <Image
+            src={uploadImageIcon}
+            alt="upload image"
+            layout="fill"
+            priority
+          />
         </div>
       )}
-      {companyPictures.length <= 1 && (
+      {profilePic.length < 1 && uploadProgress < 1 && (
         <div className={Styles.label}>
           <p>drop uour image here or</p>
           <p className={Styles.BrowseOption}>browse</p>
         </div>
       )}
-      {companyPictures.length > 1 && (
-        <div className={Styles.CompImagesContainer}>
-          {companyPictures.map(item => {
-            if (item.length > 1) {
-              return (
-                <div className={Styles.ImageDiv} key={item}>
-                  <Image
-                    src={item}
-                    alt="YourPic"
-                    layout="fixed"
-                    width={60}
-                    height={60}
-                  />
-                </div>
-              )
-            }
-          })}
+      {profilePic.length > 0 && uploadProgress < 1 && (
+        <div className={Styles.ImageWrapper}>
+          <Image
+            src={profilePic}
+            alt="YourPic"
+            layout="fill"
+            className={Styles.ProfileImage}
+          />
         </div>
       )}
     </div>

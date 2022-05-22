@@ -1,0 +1,13 @@
+:root {
+  --color-primary-accent: #5b34da;
+}
+[data-theme="dark"] {
+  --color-primary-accent: #9d86e9;
+  --color-secondary-accent: #61dafb;
+  --color-primary: #fff;
+  --color-background: #000;
+}
+body {
+  background-color: var(--color-background);
+  color: var(--color-primary);
+}

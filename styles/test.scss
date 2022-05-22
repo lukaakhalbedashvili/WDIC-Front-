@@ -1,0 +1,29 @@
+@import "./../src/library/Switch/themeToggle.module.scss";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  &[data-theme="dark"] {
+    @supports not (color-scheme: dark) {
+      background: #111;
+    }
+  }
+}
+
+@keyframes octocat-wave {
+  0%,
+  100% {
+    transform: rotate(0);
+  }
+  20%,
+  60% {
+    transform: rotate(-25deg);
+  }
+  40%,
+  80% {
+    transform: rotate(10deg);
+  }
+}

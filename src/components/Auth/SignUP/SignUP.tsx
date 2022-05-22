@@ -20,7 +20,6 @@ const SignUP: React.FC = () => {
   useSetCurForm(formSubmitBTN.current)
   return (
     <div className={Styles.main}>
-      <h3 className={Styles.stageLabel}>SignUP</h3>
       <form
         className={Styles.forms}
         autoComplete="off"

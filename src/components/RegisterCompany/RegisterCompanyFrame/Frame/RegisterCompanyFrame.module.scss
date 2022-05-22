@@ -1,5 +1,4 @@
 .main {
-  background-color: white;
   border-radius: 15px;
   box-shadow: -1px 3px 10px 0px rgba(0, 0, 0, 0.1);
   position: absolute;
@@ -24,6 +23,10 @@
     align-items: center;
     justify-content: center;
     width: 65%;
+    .stageTitle {
+      align-self: flex-start;
+      margin: 3% 0 2% 5%;
+    }
     .children {
       height: 90%;
       width: 90%;

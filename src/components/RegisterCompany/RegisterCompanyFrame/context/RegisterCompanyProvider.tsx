@@ -3,12 +3,13 @@ import { contextRG } from "./companyContext"
 import { singUpIputsArray } from "src/utils/consts"
 const RegisterCompanyProvider: React.FC = ({ children }) => {
   const [index, setIndex] = useState(0)
-  const [stages, setStages] = useState(["SignUP", "General", "Working Hours"])
+  const [stages, setStages] = useState(["SignUP", "General"])
   const [errors, setErrors] = useState({})
   const [submitBtn, setSubmitBtn] = useState<HTMLButtonElement>()
   const [singUpInputs, setSingUpInputs] = useState(singUpIputsArray)
   const [isSUFormTouched, setIsSUFormTouched] = useState(false)
-  const [companyPictures, setCompanyPictures] = useState([""])
+  const [profilePic, setProfilePic] = useState("")
+  const [uploadProgress, setUploadProgress] = useState(0)
 
   const value = {
     index,
@@ -23,8 +24,10 @@ const RegisterCompanyProvider: React.FC = ({ children }) => {
     setSingUpInputs,
     isSUFormTouched,
     setIsSUFormTouched,
-    companyPictures,
-    setCompanyPictures,
+    profilePic,
+    setProfilePic,
+    uploadProgress,
+    setUploadProgress,
   }
   return <contextRG.Provider value={value}>{children}</contextRG.Provider>
 }

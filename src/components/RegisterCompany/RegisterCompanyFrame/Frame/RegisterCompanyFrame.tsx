@@ -30,6 +30,7 @@ const RegisterCompanyFrame: React.FC = ({ children }) => {
       </div>
       <div className={Styles.content}>
         <RegisterStage />
+        <h3 className={Styles.stageTitle}>{stages[index]}</h3>
         <div className={Styles.children}>{children}</div>
         <div className={Styles.submitBtnDiv}>
           <button

@@ -6,28 +6,43 @@
   &.PicInIt {
     padding: 0;
   }
-  height: 30%;
-  width: 100%;
-  border-radius: 10px;
+  position: absolute;
+  height: 400px;
+  width: 400px;
   border: none;
   outline: none;
-  padding-left: 5%;
+  flex-direction: column;
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  flex-direction: column;
-  .uploadImageDiv {
+  justify-content: center;
+  border-radius: 50%;
+  margin: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(0, -50%);
+  .ImageWrapper:hover .label {
+    background-color: red;
+  }
+  .DefaultIcon {
+    position: absolute;
+    margin: 0;
     height: 70px;
     width: 50px;
-    position: relative;
-    margin-top: 1%;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
   .label {
-    height: 40%;
-    margin: 0;
+    position: absolute;
+    margin: auto;
+    top: 60%;
+    left: 50%;
+    width: 60%;
+    transform: translate(-50%, -50%);
     display: flex;
     justify-content: center;
-    width: 60%;
+    z-index: 10;
     p {
       margin: 0%;
     }
@@ -36,19 +51,10 @@
       margin-left: 1%;
     }
   }
-  .CompImagesContainer {
-    // background-color: red;
-    // display: grid;
-    // grid-template-rows: 100% 100%;
-    // grid-template-columns: 20% 20% 20% 20% 20%;
-    display: flex;
-    width: 100%;
-    height: 100%;
-    background-color: red;
-    .ImageDiv {
-      position: relative;
-      // width: 50%;
-      // height: 50%;
+  .ImageWrapper {
+    .ProfileImage {
+      overflow: "hidden";
+      border-radius: 50%;
     }
   }
 }
