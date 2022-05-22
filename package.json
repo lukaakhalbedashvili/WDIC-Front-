@@ -10,7 +10,8 @@
     "format": "prettier --write .",
     "test": "jest",
     "cypressGUI": "cypress open",
-    "cypress": "cypress run"
+    "cypress": "cypress run",
+    "prepare": "tsc --noEmit && npm run lint --fix && npm run test && npm run cypress && npm run format --write ."
   },
   "dependencies": {
     "@emotion/react": "^11.8.1",
