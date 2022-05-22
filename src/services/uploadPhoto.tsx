@@ -6,6 +6,7 @@ import {
   getDownloadURL,
 } from "firebase/storage"
 import { useContext } from "react"
+//
 import { contextRG } from "src/components/RegisterCompany/RegisterCompanyFrame/context/companyContext"
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_API_KEY,
