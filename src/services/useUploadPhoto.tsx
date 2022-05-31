@@ -49,9 +49,7 @@ const useUploadToFirebase = () => {
         },
         () => {
           getDownloadURL(uploadTask.snapshot.ref).then(downloadURL => {
-            setTimeout(() => {
-              setUploadProgress(0)
-            }, 3000)
+            setUploadProgress(0)
             setProfilePic(downloadURL)
             setUploadProgress(0)
           })

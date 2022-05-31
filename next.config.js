@@ -4,6 +4,11 @@ const nextConfig = {
   images: {
     domains: ["firebasestorage.googleapis.com"],
   },
+  experimental: {
+    images: {
+      layoutRaw: true,
+    },
+  },
 }
 
 module.exports = nextConfig

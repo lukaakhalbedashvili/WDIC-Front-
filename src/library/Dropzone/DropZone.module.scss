@@ -1,3 +1,4 @@
+@use "./../../../styles/consts.scss";
 .main {
   &:hover {
     background-color: #bfd3f0;
@@ -6,9 +7,10 @@
   &.PicInIt {
     padding: 0;
   }
-  position: absolute;
-  height: 400px;
-  width: 400px;
+  width: 30vw;
+  height: 30vw;
+  min-width: 300px;
+  min-height: 300px;
   border: none;
   outline: none;
   flex-direction: column;
@@ -17,44 +19,48 @@
   justify-content: center;
   border-radius: 50%;
   margin: auto;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(0, -50%);
-  .ImageWrapper:hover .label {
-    background-color: red;
+}
+.ImageWrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .ProfileImage {
+    border-radius: 50%;
+    object-fit: cover;
   }
-  .DefaultIcon {
-    position: absolute;
-    margin: 0;
-    height: 70px;
-    width: 50px;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-  .label {
-    position: absolute;
-    margin: auto;
-    top: 60%;
-    left: 50%;
-    width: 60%;
-    transform: translate(-50%, -50%);
+  .DropZoneContent {
+    width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    z-index: 10;
-    p {
-      margin: 0%;
+    align-items: center;
+    .DefaultIcon {
+      margin: 0;
     }
-    .BrowseOption {
-      text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
-      margin-left: 1%;
+    .label {
+      width: 100%;
+      width: 60%;
+      display: flex;
+      justify-content: center;
+      white-space: nowrap;
+      p {
+        margin: 0%;
+      }
+      .BrowseOption {
+        text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
+        margin-left: 1%;
+      }
     }
   }
-  .ImageWrapper {
-    .ProfileImage {
-      overflow: "hidden";
-      border-radius: 50%;
-    }
+}
+
+@media (max-width: consts.$breakpoint-phones) {
+  .main {
+    background-color: #bfd3f0;
+    width: 350px;
+    height: 350px;
   }
 }

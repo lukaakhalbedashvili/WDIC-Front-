@@ -1,6 +1,6 @@
 import React, { useRef } from "react"
 import Styles from "./DropZone.module.scss"
-import useUploadToFirebase from "src/services/uploadPhoto"
+import useUploadToFirebase from "src/services/useUploadPhoto"
 import Image from "next/image"
 import { uploadImageIcon } from "src/utils/consts"
 import { useContext } from "react"
@@ -12,7 +12,6 @@ import { CircularProgress } from "@mui/material"
 const DropZone = () => {
   const { profilePic, uploadProgress } = useContext(contextRG)
   const handleUpload = useUploadToFirebase()
-  // const [crop, setCrop] = useState({ x: 0, y: 0 })
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files === null) return
@@ -28,17 +27,6 @@ const DropZone = () => {
       })}
       onClick={() => fileInputRef.current?.click()}
     >
-      {uploadProgress > 0 && (
-        <CircularProgress variant="determinate" value={uploadProgress} />
-      )}
-
-      {/* <Cropper
-        image={profilePic}
-        aspect={4 / 3}
-        crop={crop}
-        zoom={1}
-        onCropChange={setCrop}
-      /> */}
       <input
         accept="image/png, image/jpeg"
         onChange={e => handleChange(e)}
@@ -46,32 +34,40 @@ const DropZone = () => {
         style={{ display: "none" }}
         ref={fileInputRef}
       />
-      {profilePic.length < 1 && uploadProgress < 1 && (
-        <div className={Styles.DefaultIcon}>
-          <Image
-            src={uploadImageIcon}
-            alt="upload image"
-            layout="fill"
-            priority
-          />
-        </div>
-      )}
-      {profilePic.length < 1 && uploadProgress < 1 && (
-        <div className={Styles.label}>
-          <p>drop uour image here or</p>
-          <p className={Styles.BrowseOption}>browse</p>
-        </div>
-      )}
-      {profilePic.length > 0 && uploadProgress < 1 && (
-        <div className={Styles.ImageWrapper}>
+
+      <div className={Styles.ImageWrapper}>
+        {profilePic.length > 0 && uploadProgress < 1 && (
           <Image
             src={profilePic}
             alt="YourPic"
-            layout="fill"
             className={Styles.ProfileImage}
+            priority
+            layout="fill"
           />
+        )}
+        <div className={Styles.DropZoneContent}>
+          {profilePic.length < 1 && uploadProgress < 1 && (
+            <div className={Styles.DefaultIcon}>
+              <Image
+                src={uploadImageIcon}
+                alt="upload image"
+                width={50}
+                height={50}
+                priority
+              />
+            </div>
+          )}
+          {profilePic.length < 1 && uploadProgress < 1 && (
+            <div className={Styles.label}>
+              <p>drop uour image here or</p>
+              <p className={Styles.BrowseOption}>browse</p>
+            </div>
+          )}
+          {uploadProgress > 0 && (
+            <CircularProgress variant="determinate" value={uploadProgress} />
+          )}
         </div>
-      )}
+      </div>
     </div>
   )
 }

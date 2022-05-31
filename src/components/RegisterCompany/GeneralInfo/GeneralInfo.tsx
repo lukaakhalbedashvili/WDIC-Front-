@@ -12,11 +12,6 @@ const GeneralInfo = () => {
     <div className={Styles.main}>
       <form className={Styles.GeneralForm} onSubmit={formik.handleSubmit}>
         <Dropzone />
-        <button
-          type="submit"
-          style={{ display: "none" }}
-          ref={submitBTNRef}
-        ></button>
       </form>
     </div>
   )

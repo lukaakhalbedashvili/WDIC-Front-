@@ -1,3 +1,4 @@
+@use "./../../../../../styles/consts.scss";
 .main {
   border-radius: 15px;
   box-shadow: -1px 3px 10px 0px rgba(0, 0, 0, 0.1);
@@ -9,10 +10,13 @@
   height: 90%;
   border-radius: 15px;
   display: flex;
+
   .photo {
     position: relative;
     width: 35%;
     border-radius: 15px;
+    min-width: 300px;
+
     img {
       border-radius: 15px 0 0 15px;
     }
@@ -54,6 +58,39 @@
         transform: 2s;
         background-color: pink;
         cursor: pointer;
+      }
+    }
+  }
+}
+
+@media (max-width: consts.$breakpoint-laptops) {
+  .main {
+    width: 100%;
+    .content {
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: consts.$breakpoint-tablet) {
+  .main {
+    width: 100%;
+  }
+}
+@media (max-width: consts.$breakpoint-phones) {
+  .main {
+    height: 100%;
+    width: 100%;
+    .photo {
+      display: none;
+    }
+    .content {
+      width: 100%;
+      .submitBtnDiv {
+        .submitBtn {
+          width: 50%;
+          height: 70%;
+        }
       }
     }
   }

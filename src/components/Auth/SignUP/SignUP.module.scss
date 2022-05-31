@@ -14,3 +14,15 @@
     grid-column-gap: $columnGap;
   }
 }
+
+@media (max-width: 530px) {
+  .main {
+    margin-top: 5%;
+    .forms {
+      width: 100%;
+      grid-template-columns: 100%;
+      grid-template-rows: 40% 40% 40% 40%;
+      grid-row-gap: 25%;
+    }
+  }
+}
