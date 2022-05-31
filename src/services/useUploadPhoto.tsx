@@ -1,3 +1,4 @@
+import { useContext } from "react"
 import { initializeApp } from "firebase/app"
 import {
   getStorage,
@@ -5,8 +6,6 @@ import {
   uploadBytesResumable,
   getDownloadURL,
 } from "firebase/storage"
-import { useContext } from "react"
-//
 import { contextRG } from "src/components/RegisterCompany/RegisterCompanyFrame/context/companyContext"
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_API_KEY,
@@ -21,11 +20,11 @@ initializeApp(firebaseConfig)
 const storage = getStorage()
 const useUploadToFirebase = () => {
   const { setProfilePic, setUploadProgress } = useContext(contextRG)
-  const handleUpload = (image: FileList | undefined) => {
+  const handleUpload = (image: FileList | File | undefined) => {
     if (!image) {
       return "N"
     }
-    return Object.values(image).map(image => {
+    const handleSingleFile = (image: File) => {
       const storageRef = ref(storage, `images/${image.name}`)
       const uploadTask = uploadBytesResumable(storageRef, image)
       uploadTask.on(
@@ -55,7 +54,13 @@ const useUploadToFirebase = () => {
           })
         }
       )
-    })
+    }
+    Object.values(image).length === 1 && handleSingleFile(image as File)
+
+    Object.values(image).length > 1 &&
+      Object.values(image).map(singleImage => {
+        handleSingleFile(singleImage)
+      })
   }
   return handleUpload
 }

@@ -1,41 +1,33 @@
-import React, { useRef } from "react"
+import React from "react"
 import Styles from "./DropZone.module.scss"
-import useUploadToFirebase from "src/services/useUploadPhoto"
 import Image from "next/image"
 import { uploadImageIcon } from "src/utils/consts"
-import { useContext } from "react"
-import { contextRG } from "src/components/RegisterCompany/RegisterCompanyFrame/context/companyContext"
 import classNames from "classnames"
 import { CircularProgress } from "@mui/material"
-// import Cropper from "react-easy-crop"
+import useDropzone from "./useDropzone"
+import { MdModeEdit } from "react-icons/md"
+import { AiFillDelete } from "react-icons/ai"
 
 const DropZone = () => {
-  const { profilePic, uploadProgress } = useContext(contextRG)
-  const handleUpload = useUploadToFirebase()
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files === null) return
-    handleUpload(e.target.files)
-  }
-  const fileInputRef = useRef<HTMLInputElement>(null)
-
+  const { getRootProps, getInputProps, profilePic, uploadProgress } =
+    useDropzone()
   return (
     <div
       className={classNames({
         [Styles.main]: true,
         [Styles.PicInIt]: profilePic.length > 1,
       })}
-      onClick={() => fileInputRef.current?.click()}
+      {...getRootProps()}
     >
-      <input
-        accept="image/png, image/jpeg"
-        onChange={e => handleChange(e)}
-        type="file"
-        style={{ display: "none" }}
-        ref={fileInputRef}
-      />
+      <input {...getInputProps({ multiple: false })} />
 
       <div className={Styles.ImageWrapper}>
+        <div className={Styles.onHover}>
+          <div className={Styles.Icons}>
+            <AiFillDelete size={40} className={Styles.onHoverIcons} />
+            <MdModeEdit size={40} className={Styles.onHoverIcons} />
+          </div>
+        </div>
         {profilePic.length > 0 && uploadProgress < 1 && (
           <Image
             src={profilePic}
