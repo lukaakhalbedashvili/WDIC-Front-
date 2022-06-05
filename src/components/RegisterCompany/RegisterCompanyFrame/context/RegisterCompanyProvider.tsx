@@ -10,6 +10,7 @@ const RegisterCompanyProvider: React.FC = ({ children }) => {
   const [isSUFormTouched, setIsSUFormTouched] = useState(false)
   const [profilePic, setProfilePic] = useState("")
   const [uploadProgress, setUploadProgress] = useState(0)
+  const [editClicked, setEditClicked] = useState(false)
 
   const value = {
     index,
@@ -28,6 +29,8 @@ const RegisterCompanyProvider: React.FC = ({ children }) => {
     setProfilePic,
     uploadProgress,
     setUploadProgress,
+    editClicked,
+    setEditClicked,
   }
   return <contextRG.Provider value={value}>{children}</contextRG.Provider>
 }

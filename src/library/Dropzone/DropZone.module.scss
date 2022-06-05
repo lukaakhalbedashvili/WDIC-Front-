@@ -19,6 +19,9 @@
   &.PicInIt {
     padding: 0;
   }
+  &.InEdit {
+    background-color: transparent;
+  }
 }
 .ImageWrapper {
   width: 100%;
@@ -64,6 +67,16 @@
   .ProfileImage {
     border-radius: 50%;
     object-fit: cover;
+  }
+  .CropperWrapper {
+    .SliderWrapper {
+      position: absolute;
+      bottom: -10%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+    }
+    z-index: 1;
   }
   .DropZoneContent {
     width: 100%;

@@ -3,13 +3,13 @@ import SearchBar from "react-typeahead-input-component"
 const Index = () => {
   const results = [
     {
-      img: "https://firebasestorage.googleapis.com/v0/b/green-b3fdd.appspot.com/o/images%2FVAJA.JPG?alt=media&token=9bc9d965-164c-4b82-a6a3-9f735f419d2b",
+      img: "https://firebasestorage.googleapis.com/v0/b/green-b3fdd.appspot.com/o/images%2Fdesktop.jpeg?alt=media&token=fd696dc5-a1bf-43ed-a458-0b36155a6016",
       title: "Vaja",
       subTitle: "Name",
       payload: "AA",
     },
     {
-      img: "https://firebasestorage.googleapis.com/v0/b/green-b3fdd.appspot.com/o/images%2FVAJA.JPG?alt=media&token=9bc9d965-164c-4b82-a6a3-9f735f419d2b",
+      img: "https://firebasestorage.googleapis.com/v0/b/green-b3fdd.appspot.com/o/images%2Fdesktop.jpeg?alt=media&token=fd696dc5-a1bf-43ed-a458-0b36155a6016",
       title: "Vaja",
       subTitle: "Name",
       payload: "AA",

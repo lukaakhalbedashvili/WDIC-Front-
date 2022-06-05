@@ -23,6 +23,8 @@ type registerCompanyContext = {
   setProfilePic: (newCompanyPictures: string) => void
   uploadProgress: number
   setUploadProgress: (newUploadProgress: number) => void
+  editClicked: boolean
+  setEditClicked: (newEditClicked: boolean) => void
 }
 export const contextRG = createContext<registerCompanyContext>({
   index: 0,
@@ -62,6 +64,10 @@ export const contextRG = createContext<registerCompanyContext>({
   },
   uploadProgress: 0,
   setUploadProgress: () => {
+    //donothing
+  },
+  editClicked: false,
+  setEditClicked: () => {
     //donothing
   },
 })
