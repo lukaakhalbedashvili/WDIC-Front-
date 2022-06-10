@@ -35,30 +35,12 @@
       height: 90%;
       width: 90%;
     }
-    .submitBtnDiv {
-      width: 90%;
-      height: 10%;
+    .ButtonsWrapper {
       display: flex;
       justify-content: flex-end;
+      height: 10%;
+      width: 90%;
       margin-bottom: 5%;
-
-      .submitBtn {
-        &.disabled {
-          background-color: rgb(237, 197, 204);
-        }
-        box-shadow: -1px 3px 10px 0px rgba(0, 0, 0, 0.1);
-        color: white;
-        border: none;
-        border-radius: 5px;
-        background-color: rgb(235, 160, 172);
-        height: 100%;
-        width: 30%;
-      }
-      .submitBtn:hover {
-        transform: 2s;
-        background-color: pink;
-        cursor: pointer;
-      }
     }
   }
 }

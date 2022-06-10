@@ -1,29 +1,29 @@
 import Styles from "./RegisterCompanyFrame.module.scss"
 import Image from "next/image"
-import {
-  registerCompanyFrameImage,
-  generalCompanyFrameImage,
-} from "src/utils/consts"
 import RegisterStage from "../RegisterStage/RegisterStage"
-import { useContext } from "react"
-import { contextRG } from "../context/companyContext"
-import classNames from "classnames"
+import SuccessButton from "src/library/SuccessButton"
+import BackButton from "src/library/BackButton"
+import useRegisterCompanyFrame from "./useRegisterCompanyFrame"
 const RegisterCompanyFrame: React.FC = ({ children }) => {
-  const sideFrameIMG = [registerCompanyFrameImage, generalCompanyFrameImage]
-  const { index, setIndex, stages, errors, submitBtn, isSUFormTouched } =
-    useContext(contextRG)
-  const errorsLength = Object.keys(errors).length
-  const hanldeSubmit: () => void = async () => {
-    submitBtn && submitBtn.click()
-    errorsLength === 0 && index < stages.length - 1 && setIndex(index + 1)
-  }
+  const {
+    sideFrameIMG,
+    index,
+    stages,
+    errorsLength,
+    hanldeSubmit,
+    isFormTouched,
+    backButtonOnClickHandler,
+    editClicked,
+    handleEdit,
+    handleDiscard,
+  } = useRegisterCompanyFrame()
   return (
     <div className={Styles.main}>
       <div className={Styles.photo}>
         <Image
           src={sideFrameIMG[index]}
           layout="fill"
-          alt="asx"
+          alt="Image decoration abstract art"
           priority={true}
           quality={10}
         />
@@ -32,18 +32,26 @@ const RegisterCompanyFrame: React.FC = ({ children }) => {
         <RegisterStage />
         <h3 className={Styles.stageTitle}>{stages[index]}</h3>
         <div className={Styles.children}>{children}</div>
-        <div className={Styles.submitBtnDiv}>
-          <button
-            type="button"
-            className={classNames({
-              [Styles.submitBtn]: true,
-              [Styles.disabled]: errorsLength > 0 || !isSUFormTouched,
-            })}
-            onClick={() => hanldeSubmit()}
-            disabled={!isSUFormTouched}
-          >
-            {index < stages.length - 1 ? "Next" : "Submit"}
-          </button>
+        <div className={Styles.ButtonsWrapper}>
+          {index > 0 && (
+            <BackButton
+              content={editClicked ? "Discard" : "Back"}
+              onClickHandler={
+                editClicked ? handleDiscard : backButtonOnClickHandler
+              }
+            />
+          )}
+          <SuccessButton
+            content={
+              index < stages.length - 1
+                ? "Next"
+                : editClicked
+                ? "Apply"
+                : "Submit"
+            }
+            hanldeSubmit={editClicked ? handleEdit : hanldeSubmit}
+            disabled={errorsLength > 0 || !isFormTouched}
+          />
         </div>
       </div>
     </div>

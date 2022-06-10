@@ -17,7 +17,7 @@ type registerCompanyContext = {
       value: string
     }[]
   ) => void
-  isSUFormTouched: boolean
+  isFormTouched: boolean
   setIsSUFormTouched: (newIsFormTouched: boolean) => void
   profilePic: string
   setProfilePic: (newCompanyPictures: string) => void
@@ -54,7 +54,7 @@ export const contextRG = createContext<registerCompanyContext>({
   setSingUpInputs: () => {
     //donothing
   },
-  isSUFormTouched: false,
+  isFormTouched: false,
   setIsSUFormTouched: () => {
     //donothing
   },
