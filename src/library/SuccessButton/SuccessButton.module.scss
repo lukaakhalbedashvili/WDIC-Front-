@@ -1,0 +1,28 @@
+@use "../../../styles/consts.scss";
+
+.submitBtn {
+  &.disabled {
+    background-color: rgb(237, 197, 204);
+  }
+  box-shadow: -1px 3px 10px 0px rgba(0, 0, 0, 0.1);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(235, 160, 172);
+  height: 100%;
+  width: 30%;
+}
+.submitBtn:hover {
+  transform: 2s;
+  background-color: pink;
+  cursor: pointer;
+  &.disabled:hover {
+    background-color: rgb(237, 197, 204);
+  }
+}
+
+@media (max-width: consts.$breakpoint-phones) {
+  .submitBtn {
+    width: 50%;
+  }
+}

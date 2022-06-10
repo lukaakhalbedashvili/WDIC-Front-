@@ -7,7 +7,7 @@ const RegisterCompanyProvider: React.FC = ({ children }) => {
   const [errors, setErrors] = useState({})
   const [submitBtn, setSubmitBtn] = useState<HTMLButtonElement>()
   const [singUpInputs, setSingUpInputs] = useState(singUpIputsArray)
-  const [isSUFormTouched, setIsSUFormTouched] = useState(false)
+  const [isFormTouched, setIsSUFormTouched] = useState(false)
   const [profilePic, setProfilePic] = useState("")
   const [uploadProgress, setUploadProgress] = useState(0)
   const [editClicked, setEditClicked] = useState(false)
@@ -23,7 +23,7 @@ const RegisterCompanyProvider: React.FC = ({ children }) => {
     setSubmitBtn,
     singUpInputs,
     setSingUpInputs,
-    isSUFormTouched,
+    isFormTouched,
     setIsSUFormTouched,
     profilePic,
     setProfilePic,

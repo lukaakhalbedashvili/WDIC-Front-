@@ -1,4 +1,4 @@
-import React, { memo, useCallback, useContext, useState } from "react"
+import React, { memo } from "react"
 import Styles from "./DropZone.module.scss"
 import Image from "next/image"
 import { uploadImageIcon } from "src/utils/consts"
@@ -9,10 +9,8 @@ import { MdModeEdit } from "react-icons/md"
 import { AiFillDelete } from "react-icons/ai"
 import { FaCloudUploadAlt } from "react-icons/fa"
 import Cropper from "react-easy-crop"
-import { contextRG } from "src/components/RegisterCompany/RegisterCompanyFrame/context/companyContext"
 
 const DropZone = () => {
-  const { editClicked } = useContext(contextRG)
   const {
     getRootProps,
     getInputProps,
@@ -22,14 +20,12 @@ const DropZone = () => {
     handleEdit,
     zoomPercent,
     setZoomPercent,
+    crop,
+    setCrop,
+    setZoom,
+    onCropComplete,
+    editClicked,
   } = useDropzone()
-  const [crop, setCrop] = useState({ x: 0, y: 0 })
-  const [zoom, setZoom] = useState(1)
-  const onCropComplete = useCallback((croppedArea, croppedAreaPixels) => {
-    console.log(croppedArea, croppedAreaPixels, zoom)
-  }, [])
-
-  console.log(zoomPercent / 10, zoomPercent)
 
   return (
     <div
@@ -40,7 +36,8 @@ const DropZone = () => {
       })}
       {...getRootProps({
         onClick: event => {
-          profilePic.length > 1 && event.stopPropagation()
+          editClicked && event.stopPropagation()
+          console.log(event)
         },
       })}
     >
@@ -62,7 +59,7 @@ const DropZone = () => {
               <MdModeEdit
                 size={40}
                 className={Styles.onHoverIcons}
-                onClick={() => handleEdit()}
+                onClick={e => handleEdit(e)}
               />
             </div>
           </div>
@@ -93,12 +90,18 @@ const DropZone = () => {
             />
             <div className={Styles.SliderWrapper}>
               <Slider
+                sx={{
+                  color: "#ebf3fe",
+                  "& .MuiSlider-thumb": {
+                    color: "pink",
+                  },
+                }}
                 defaultValue={0}
                 aria-label="Default"
                 valueLabelDisplay="auto"
                 onChange={e => {
                   const result = Number((e.target as HTMLInputElement).value)
-                  result > 9 && setZoomPercent(result)
+                  result < 10 ? setZoomPercent(10) : setZoomPercent(result)
                 }}
               />
             </div>
