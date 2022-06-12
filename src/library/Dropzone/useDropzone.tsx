@@ -1,15 +1,16 @@
 import { useDropzone as useDropzoneLibrary } from "react-dropzone"
-import useUploadToFirebase from "src/services/useUploadPhoto"
 import React, { useCallback, useContext, useState } from "react"
 import { contextRG } from "src/components/RegisterCompany/RegisterCompanyFrame/context/companyContext"
 
 const useDropzone = () => {
   const { profilePic, setProfilePic, uploadProgress, setEditClicked } =
     useContext(contextRG)
+
   const onDrop = useCallback(acceptedFiles => {
     handleChange(acceptedFiles)
     console.log(acceptedFiles)
   }, [])
+
   const { getRootProps, getInputProps } = useDropzoneLibrary({
     onDrop,
   })
@@ -17,10 +18,13 @@ const useDropzone = () => {
   const [crop, setCrop] = useState({ x: 0, y: 0 })
   const [zoom, setZoom] = useState(1)
 
-  const handleUpload = useUploadToFirebase()
   const handleChange = (file: FileList | undefined) => {
     if (!file) return
-    handleUpload(file[0])
+    const reader = new FileReader()
+    reader.readAsDataURL(file[0])
+    reader.onloadend = () => {
+      setProfilePic(reader.result as string)
+    }
   }
 
   const handleEdit = (e: React.MouseEvent) => {

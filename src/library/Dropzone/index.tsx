@@ -37,7 +37,6 @@ const DropZone = () => {
       {...getRootProps({
         onClick: event => {
           editClicked && event.stopPropagation()
-          console.log(event)
         },
       })}
     >
@@ -64,17 +63,17 @@ const DropZone = () => {
             </div>
           </div>
         )}
-        {profilePic.length > 0 &&
-          uploadProgress < 1 &&
-          editClicked === false && (
-            <Image
-              src={profilePic}
-              alt="YourPic"
-              className={Styles.ProfileImage}
-              priority
-              layout="fill"
-            />
-          )}
+        {console.log(profilePic)}
+
+        {profilePic && uploadProgress < 1 && editClicked === false && (
+          <Image
+            src={profilePic}
+            alt="YourPic"
+            className={Styles.ProfileImage}
+            priority
+            layout="fill"
+          />
+        )}
         {profilePic.length > 0 && uploadProgress < 1 && editClicked === true && (
           <div className={Styles.CropperWrapper}>
             <Cropper

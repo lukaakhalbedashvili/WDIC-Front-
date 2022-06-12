@@ -16,8 +16,8 @@ const useFormikGeneral = () => {
         .required("required"),
       companyDescription: Yup.string().required("required"),
     }),
-    onSubmit: values => {
-      console.log(values)
+    onSubmit: e => {
+      e
     },
   })
   return { generalInfoValidation }

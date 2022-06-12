@@ -27,7 +27,7 @@ const useRegisterCompanyFrame = () => {
     setIndex(index - 1)
   }
   const handleEdit = () => {
-    console.log("qaaaia")
+    //
   }
   const handleDiscard = () => {
     setEditClicked(false)

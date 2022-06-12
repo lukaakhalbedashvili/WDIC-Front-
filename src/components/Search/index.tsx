@@ -19,10 +19,8 @@ const Index = () => {
   return (
     <SearchBar
       placeholder="Searching is easier"
-      onClick={payload => console.log(payload)}
       results={results}
       width="40%"
-      onChange={payload => console.log(payload)}
     />
   )
 }
