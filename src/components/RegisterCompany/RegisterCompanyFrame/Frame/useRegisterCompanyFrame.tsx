@@ -1,10 +1,10 @@
 import { useContext } from "react"
-
 import {
   registerCompanyFrameImage,
   generalCompanyFrameImage,
 } from "src/utils/consts"
 import { contextRG } from "../context/companyContext"
+import cropImage from "src/utils/cropImage"
 
 const useRegisterCompanyFrame = () => {
   const sideFrameIMG = [registerCompanyFrameImage, generalCompanyFrameImage]
@@ -17,6 +17,9 @@ const useRegisterCompanyFrame = () => {
     isFormTouched,
     editClicked,
     setEditClicked,
+    croppedAreaPixels,
+    profilePic,
+    setFinalImage,
   } = useContext(contextRG)
   const errorsLength = Object.keys(errors).length
   const hanldeSubmit: () => void = async () => {
@@ -26,8 +29,10 @@ const useRegisterCompanyFrame = () => {
   const backButtonOnClickHandler = () => {
     setIndex(index - 1)
   }
-  const handleEdit = () => {
-    //
+  const handleEdit = async () => {
+    console.log(await cropImage(profilePic, croppedAreaPixels), setFinalImage)
+
+    setFinalImage((await cropImage(profilePic, croppedAreaPixels)) as string)
   }
   const handleDiscard = () => {
     setEditClicked(false)

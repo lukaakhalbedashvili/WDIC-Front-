@@ -8,9 +8,17 @@ const RegisterCompanyProvider: React.FC = ({ children }) => {
   const [submitBtn, setSubmitBtn] = useState<HTMLButtonElement>()
   const [singUpInputs, setSingUpInputs] = useState(singUpIputsArray)
   const [isFormTouched, setIsSUFormTouched] = useState(false)
-  const [profilePic, setProfilePic] = useState("")
   const [uploadProgress, setUploadProgress] = useState(0)
   const [editClicked, setEditClicked] = useState(false)
+  const [cropedImage, setCropedImage] = useState("")
+  const [profilePic, setProfilePic] = useState("")
+  const [croppedAreaPixels, setCroppedAreaPixels] = useState({
+    x: 0,
+    y: 0,
+    width: 0,
+    height: 0,
+  })
+  const [finalImage, setFinalImage] = useState<Blob | undefined>()
 
   const value = {
     index,
@@ -31,6 +39,12 @@ const RegisterCompanyProvider: React.FC = ({ children }) => {
     setUploadProgress,
     editClicked,
     setEditClicked,
+    cropedImage,
+    setCropedImage,
+    croppedAreaPixels,
+    setCroppedAreaPixels,
+    finalImage,
+    setFinalImage,
   }
   return <contextRG.Provider value={value}>{children}</contextRG.Provider>
 }

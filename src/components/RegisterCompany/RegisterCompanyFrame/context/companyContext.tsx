@@ -19,12 +19,23 @@ type registerCompanyContext = {
   ) => void
   isFormTouched: boolean
   setIsSUFormTouched: (newIsFormTouched: boolean) => void
-  profilePic: string
-  setProfilePic: (newCompanyPictures: string) => void
   uploadProgress: number
   setUploadProgress: (newUploadProgress: number) => void
   editClicked: boolean
   setEditClicked: (newEditClicked: boolean) => void
+  cropedImage: string
+  setCropedImage: (newCropedImage: string) => void
+  setProfilePic: (newCompanyPictures: string) => void
+  profilePic: string
+  croppedAreaPixels: { x: number; y: number; width: number; height: number }
+  setCroppedAreaPixels: (newCroppedAreaPixels: {
+    x: number
+    y: number
+    width: number
+    height: number
+  }) => void
+  finalImage: string
+  setFinalImage: (newFinalImage: string) => void
 }
 export const contextRG = createContext<registerCompanyContext>({
   index: 0,
@@ -68,6 +79,18 @@ export const contextRG = createContext<registerCompanyContext>({
   },
   editClicked: false,
   setEditClicked: () => {
+    //donothing
+  },
+  cropedImage: "",
+  setCropedImage: () => {
+    //donothing
+  },
+  croppedAreaPixels: { x: 0, y: 0, width: 0, height: 0 },
+  setCroppedAreaPixels: () => {
+    //donothing
+  },
+  finalImage: "",
+  setFinalImage: () => {
     //donothing
   },
 })

@@ -1,6 +1,9 @@
 .main {
   width: 100%;
   height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   .stageLabel {
     margin: 5% 0 5% 0;
   }
@@ -12,6 +15,28 @@
     grid-template-rows: 40% 40%;
     grid-row-gap: 25%;
     grid-column-gap: $columnGap;
+  }
+  .altSignup {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-top: 1px solid rgb(114, 111, 111);
+  }
+  .altSignupText {
+    position: absolute;
+    top: -10px;
+    background-color: white;
+    padding: 0 5% 0 5%;
+  }
+  .altSignupIcons {
+    &:hover {
+      cursor: pointer;
+    }
+    margin-top: 5%;
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
   }
 }
 

@@ -17,6 +17,7 @@ const RegisterCompanyFrame: React.FC = ({ children }) => {
     handleEdit,
     handleDiscard,
   } = useRegisterCompanyFrame()
+
   return (
     <div className={Styles.main}>
       <div className={Styles.photo}>

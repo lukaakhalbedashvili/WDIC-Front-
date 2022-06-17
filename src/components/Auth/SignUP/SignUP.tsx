@@ -1,23 +1,11 @@
 import Styles from "./SignUP.module.scss"
-import { useRef } from "react"
-import useFormikSchema from "src/hooks/useFormikHook"
-import { useEffect } from "react"
-import { useContext } from "react"
-import { contextRG } from "src/components/RegisterCompany/RegisterCompanyFrame/context/companyContext"
 import Input from "src/library/Input"
-import useSetCurForm from "src/hooks/useSetCurForm"
-const SignUP: React.FC = () => {
-  const { setErrors, singUpInputs } = useContext(contextRG)
-  const formSubmitBTN = useRef<HTMLButtonElement>(null)
-  const { signUpValidation } = useFormikSchema()
-  const formik = signUpValidation
+import Image from "next/image"
+import { signIn } from "next-auth/react"
+import useSignUp from "./useSignUp"
 
-  useEffect(() => {
-    if (formik.errors) {
-      setErrors(formik.errors)
-    }
-  }, [formik.errors, setErrors])
-  useSetCurForm(formSubmitBTN.current)
+const SignUP: React.FC = () => {
+  const { socialIcons, singUpInputs, formik, formSubmitBTN } = useSignUp()
   return (
     <div className={Styles.main}>
       <form
@@ -48,6 +36,23 @@ const SignUP: React.FC = () => {
           ref={formSubmitBTN}
         ></button>
       </form>
+      <div className={Styles.altSignup}>
+        <p className={Styles.altSignupText}>Or continue with</p>
+        <div className={Styles.altSignupIcons}>
+          {socialIcons.map(item => {
+            return (
+              <Image
+                key={item.redirectTo}
+                src={item.image}
+                width={40}
+                height={40}
+                alt="qwe"
+                onClick={() => signIn(item.redirectTo)}
+              />
+            )
+          })}
+        </div>
+      </div>
     </div>
   )
 }

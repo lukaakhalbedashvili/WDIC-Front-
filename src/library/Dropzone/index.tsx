@@ -17,14 +17,15 @@ const DropZone = () => {
     profilePic,
     setProfilePic,
     uploadProgress,
-    handleEdit,
+    handleEditMode,
     zoomPercent,
     setZoomPercent,
-    crop,
-    setCrop,
+    cropArea,
+    setCropArea,
     setZoom,
     onCropComplete,
     editClicked,
+    cropedImage,
   } = useDropzone()
 
   return (
@@ -58,16 +59,15 @@ const DropZone = () => {
               <MdModeEdit
                 size={40}
                 className={Styles.onHoverIcons}
-                onClick={e => handleEdit(e)}
+                onClick={e => handleEditMode(e)}
               />
             </div>
           </div>
         )}
-        {console.log(profilePic)}
 
         {profilePic && uploadProgress < 1 && editClicked === false && (
           <Image
-            src={profilePic}
+            src={cropedImage ? cropedImage : profilePic}
             alt="YourPic"
             className={Styles.ProfileImage}
             priority
@@ -78,13 +78,13 @@ const DropZone = () => {
           <div className={Styles.CropperWrapper}>
             <Cropper
               image={profilePic}
-              crop={crop}
+              crop={cropArea}
               zoom={zoomPercent / 10}
               aspect={10 / 10}
-              onCropChange={setCrop}
+              onCropChange={setCropArea}
               onCropComplete={onCropComplete}
               onZoomChange={setZoom}
-              cropShape="round"
+              // cropShape="round"
               objectFit="vertical-cover"
             />
             <div className={Styles.SliderWrapper}>

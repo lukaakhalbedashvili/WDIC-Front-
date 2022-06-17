@@ -3,37 +3,43 @@ import React, { useCallback, useContext, useState } from "react"
 import { contextRG } from "src/components/RegisterCompany/RegisterCompanyFrame/context/companyContext"
 
 const useDropzone = () => {
-  const { profilePic, setProfilePic, uploadProgress, setEditClicked } =
-    useContext(contextRG)
+  const {
+    profilePic,
+    setProfilePic,
+    uploadProgress,
+    setEditClicked,
+    cropedImage,
+    editClicked,
+    setCroppedAreaPixels,
+  } = useContext(contextRG)
+
+  const [cropArea, setCropArea] = useState({ x: 0, y: 0 })
+  const [zoom, setZoom] = useState(1)
 
   const onDrop = useCallback(acceptedFiles => {
     handleChange(acceptedFiles)
-    console.log(acceptedFiles)
   }, [])
 
   const { getRootProps, getInputProps } = useDropzoneLibrary({
     onDrop,
   })
-  const { editClicked } = useContext(contextRG)
-  const [crop, setCrop] = useState({ x: 0, y: 0 })
-  const [zoom, setZoom] = useState(1)
 
   const handleChange = (file: FileList | undefined) => {
     if (!file) return
     const reader = new FileReader()
     reader.readAsDataURL(file[0])
     reader.onloadend = () => {
-      setProfilePic(reader.result as string)
+      typeof reader.result === "string" && setProfilePic(reader.result)
     }
   }
 
-  const handleEdit = (e: React.MouseEvent) => {
+  const handleEditMode = (e: React.MouseEvent) => {
     e.stopPropagation()
     setEditClicked(true)
   }
 
-  const onCropComplete = useCallback((croppedArea, croppedAreaPixels) => {
-    console.log(croppedArea, croppedAreaPixels, zoom)
+  const onCropComplete = useCallback(croppedAreaPixels => {
+    setCroppedAreaPixels(croppedAreaPixels)
   }, [])
 
   const [zoomPercent, setZoomPercent] = useState(10)
@@ -43,15 +49,16 @@ const useDropzone = () => {
     profilePic,
     setProfilePic,
     uploadProgress,
-    handleEdit,
+    handleEditMode,
     zoomPercent,
     setZoomPercent,
-    crop,
-    setCrop,
+    cropArea,
+    setCropArea,
     zoom,
     setZoom,
     onCropComplete,
     editClicked,
+    cropedImage,
   }
 }
 
