@@ -8,13 +8,13 @@ const useDropzone = () => {
     setProfilePic,
     uploadProgress,
     setEditClicked,
-    cropedImage,
     editClicked,
     setCroppedAreaPixels,
+    finalImage,
+    setFinalImage,
   } = useContext(contextRG)
 
   const [cropArea, setCropArea] = useState({ x: 0, y: 0 })
-  const [zoom, setZoom] = useState(1)
 
   const onDrop = useCallback(acceptedFiles => {
     handleChange(acceptedFiles)
@@ -38,7 +38,7 @@ const useDropzone = () => {
     setEditClicked(true)
   }
 
-  const onCropComplete = useCallback(croppedAreaPixels => {
+  const onCropComplete = useCallback((cropedArea, croppedAreaPixels) => {
     setCroppedAreaPixels(croppedAreaPixels)
   }, [])
 
@@ -52,13 +52,13 @@ const useDropzone = () => {
     handleEditMode,
     zoomPercent,
     setZoomPercent,
-    cropArea,
-    setCropArea,
-    zoom,
-    setZoom,
     onCropComplete,
     editClicked,
-    cropedImage,
+    finalImage,
+    setEditClicked,
+    setFinalImage,
+    cropArea,
+    setCropArea,
   }
 }
 

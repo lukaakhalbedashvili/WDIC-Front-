@@ -23,8 +23,6 @@ type registerCompanyContext = {
   setUploadProgress: (newUploadProgress: number) => void
   editClicked: boolean
   setEditClicked: (newEditClicked: boolean) => void
-  cropedImage: string
-  setCropedImage: (newCropedImage: string) => void
   setProfilePic: (newCompanyPictures: string) => void
   profilePic: string
   croppedAreaPixels: { x: number; y: number; width: number; height: number }
@@ -79,10 +77,6 @@ export const contextRG = createContext<registerCompanyContext>({
   },
   editClicked: false,
   setEditClicked: () => {
-    //donothing
-  },
-  cropedImage: "",
-  setCropedImage: () => {
     //donothing
   },
   croppedAreaPixels: { x: 0, y: 0, width: 0, height: 0 },

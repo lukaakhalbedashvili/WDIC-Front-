@@ -20,12 +20,12 @@ const DropZone = () => {
     handleEditMode,
     zoomPercent,
     setZoomPercent,
-    cropArea,
-    setCropArea,
-    setZoom,
     onCropComplete,
     editClicked,
-    cropedImage,
+    finalImage,
+    setFinalImage,
+    cropArea,
+    setCropArea,
   } = useDropzone()
 
   return (
@@ -53,6 +53,8 @@ const DropZone = () => {
                 onClick={e => {
                   e.stopPropagation()
                   setProfilePic("")
+                  setFinalImage("")
+                  setZoomPercent(10)
                 }}
               />
               <FaCloudUploadAlt size={40} className={Styles.onHoverIcons} />
@@ -67,7 +69,7 @@ const DropZone = () => {
 
         {profilePic && uploadProgress < 1 && editClicked === false && (
           <Image
-            src={cropedImage ? cropedImage : profilePic}
+            src={finalImage ? finalImage : profilePic}
             alt="YourPic"
             className={Styles.ProfileImage}
             priority
@@ -80,13 +82,14 @@ const DropZone = () => {
               image={profilePic}
               crop={cropArea}
               zoom={zoomPercent / 10}
-              aspect={10 / 10}
+              aspect={4 / 4}
               onCropChange={setCropArea}
               onCropComplete={onCropComplete}
-              onZoomChange={setZoom}
-              // cropShape="round"
+              onZoomChange={setZoomPercent}
+              cropShape="round"
               objectFit="vertical-cover"
             />
+
             <div className={Styles.SliderWrapper}>
               <Slider
                 sx={{

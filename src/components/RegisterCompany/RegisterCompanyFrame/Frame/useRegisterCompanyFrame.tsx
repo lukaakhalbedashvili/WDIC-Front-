@@ -30,8 +30,7 @@ const useRegisterCompanyFrame = () => {
     setIndex(index - 1)
   }
   const handleEdit = async () => {
-    console.log(await cropImage(profilePic, croppedAreaPixels), setFinalImage)
-
+    setEditClicked(false)
     setFinalImage((await cropImage(profilePic, croppedAreaPixels)) as string)
   }
   const handleDiscard = () => {

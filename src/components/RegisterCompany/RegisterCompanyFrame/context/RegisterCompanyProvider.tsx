@@ -10,7 +10,6 @@ const RegisterCompanyProvider: React.FC = ({ children }) => {
   const [isFormTouched, setIsSUFormTouched] = useState(false)
   const [uploadProgress, setUploadProgress] = useState(0)
   const [editClicked, setEditClicked] = useState(false)
-  const [cropedImage, setCropedImage] = useState("")
   const [profilePic, setProfilePic] = useState("")
   const [croppedAreaPixels, setCroppedAreaPixels] = useState({
     x: 0,
@@ -18,7 +17,7 @@ const RegisterCompanyProvider: React.FC = ({ children }) => {
     width: 0,
     height: 0,
   })
-  const [finalImage, setFinalImage] = useState<Blob | undefined>()
+  const [finalImage, setFinalImage] = useState("")
 
   const value = {
     index,
@@ -39,8 +38,6 @@ const RegisterCompanyProvider: React.FC = ({ children }) => {
     setUploadProgress,
     editClicked,
     setEditClicked,
-    cropedImage,
-    setCropedImage,
     croppedAreaPixels,
     setCroppedAreaPixels,
     finalImage,
