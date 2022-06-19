@@ -2,7 +2,7 @@ import { useRef } from "react"
 import Styles from "./GeneralInfo.module.scss"
 import useFormikGeneral from "src/hooks/useFormikGeneral"
 import useSetCurForm from "src/hooks/useSetCurForm"
-import Dropzone from "src/library/Dropzone"
+import Dropzone from "src/components/Dropzone"
 
 const GeneralInfo = () => {
   const submitBTNRef = useRef<HTMLButtonElement | null>(null)

@@ -3,7 +3,7 @@ import React, { useContext } from "react"
 import classNames from "classnames"
 import { BsExclamationCircle } from "react-icons/bs"
 import { InputType } from "./types"
-import { contextRG } from "src/components/RegisterCompany/RegisterCompanyFrame/context/companyContext"
+import { contextRG } from "src/components/AuthFrame/context/signupContext"
 
 const Input = ({
   name,

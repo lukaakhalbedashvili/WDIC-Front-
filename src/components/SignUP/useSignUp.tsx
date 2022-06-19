@@ -1,5 +1,5 @@
 import { useContext, useEffect, useRef } from "react"
-import { contextRG } from "src/components/RegisterCompany/RegisterCompanyFrame/context/companyContext"
+import { contextRG } from "src/components/AuthFrame/context/signupContext"
 import useFormikSchema from "src/hooks/useFormikHook"
 import useSessionValidation from "src/hooks/useSessionValidation"
 import useSetCurForm from "src/hooks/useSetCurForm"

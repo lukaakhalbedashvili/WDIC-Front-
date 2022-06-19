@@ -1,8 +1,8 @@
-import RegisterCompanyFrame from "./Frame/RegisterCompanyFrame"
-import GeneralInfo from "src/components/RegisterCompany/GeneralInfo/GeneralInfo"
-import SignUP from "src/components/Auth/SignUP/SignUP"
+import RegisterCompanyFrame from "./Frame/AuthFrame"
+import SignUP from "src/components/SignUP/SignUP"
 import { useContext } from "react"
-import { contextRG } from "./context/companyContext"
+import GeneralInfo from "../SigmUpPhotoUpload/GeneralInfo"
+import { contextRG } from "./context/signupContext"
 const stagesComponents = [
   <SignUP key="signUp" />,
   <GeneralInfo key="generalInfo" />,

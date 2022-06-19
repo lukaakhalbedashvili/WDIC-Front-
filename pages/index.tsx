@@ -1,12 +1,9 @@
 import type { NextPage } from "next"
-import Search from "src/components/Search"
 // import Switch from "src/library/Switch"
+import Header from "src/components/Header"
+
 const Home: NextPage = () => {
-  return (
-    <>
-      <Search />
-    </>
-  )
+  return <Header />
 }
 
 export default Home

@@ -1,5 +1,5 @@
 import { useEffect, useContext } from "react"
-import { contextRG } from "src/components/RegisterCompany/RegisterCompanyFrame/context/companyContext"
+import { contextRG } from "src/components/AuthFrame/context/signupContext"
 const useSetCurForm = (formSubmitBTN: HTMLButtonElement | null): void => {
   const { setSubmitBtn } = useContext(contextRG)
   useEffect(() => {

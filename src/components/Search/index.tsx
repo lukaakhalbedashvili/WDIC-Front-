@@ -20,7 +20,7 @@ const Index = () => {
     <SearchBar
       placeholder="Searching is easier"
       results={results}
-      width="40%"
+      width={"50%"}
     />
   )
 }

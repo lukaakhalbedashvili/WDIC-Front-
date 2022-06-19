@@ -1,9 +1,9 @@
-import Styles from "./RegisterCompanyFrame.module.scss"
+import Styles from "./AuthFrame.module.scss"
 import Image from "next/image"
 import RegisterStage from "../RegisterStage/RegisterStage"
 import SuccessButton from "src/library/SuccessButton"
 import BackButton from "src/library/BackButton"
-import useRegisterCompanyFrame from "./useRegisterCompanyFrame"
+import useRegisterCompanyFrame from "./useAuthFrameFrame"
 const RegisterCompanyFrame: React.FC = ({ children }) => {
   const {
     sideFrameIMG,

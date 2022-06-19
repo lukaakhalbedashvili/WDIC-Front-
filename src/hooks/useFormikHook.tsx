@@ -1,6 +1,6 @@
 import { useContext } from "react"
 import { useFormik } from "formik"
-import { contextRG } from "src/components/RegisterCompany/RegisterCompanyFrame/context/companyContext"
+import { contextRG } from "src/components/AuthFrame/context/signupContext"
 import * as Yup from "yup"
 
 const useFormikSchema = () => {

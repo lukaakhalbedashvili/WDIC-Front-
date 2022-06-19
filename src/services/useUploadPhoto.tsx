@@ -6,7 +6,7 @@ import {
   uploadBytesResumable,
   getDownloadURL,
 } from "firebase/storage"
-import { contextRG } from "src/components/RegisterCompany/RegisterCompanyFrame/context/companyContext"
+import { contextRG } from "src/components/AuthFrame/context/signupContext"
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_API_KEY,
   authDomain: process.env.NEXT_PUBLIC_AUTH_DOMAIN,

@@ -3,7 +3,7 @@ import {
   registerCompanyFrameImage,
   generalCompanyFrameImage,
 } from "src/utils/consts"
-import { contextRG } from "../context/companyContext"
+import { contextRG } from "../context/signupContext"
 import cropImage from "src/utils/cropImage"
 
 const useRegisterCompanyFrame = () => {

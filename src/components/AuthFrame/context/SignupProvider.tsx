@@ -1,7 +1,7 @@
 import { useState } from "react"
-import { contextRG } from "./companyContext"
+import { contextRG } from "./signupContext"
 import { singUpIputsArray } from "src/utils/consts"
-const RegisterCompanyProvider: React.FC = ({ children }) => {
+const SignupProvider: React.FC = ({ children }) => {
   const [index, setIndex] = useState(0)
   const [stages, setStages] = useState(["SignUP", "General"])
   const [errors, setErrors] = useState({})
@@ -45,4 +45,4 @@ const RegisterCompanyProvider: React.FC = ({ children }) => {
   }
   return <contextRG.Provider value={value}>{children}</contextRG.Provider>
 }
-export default RegisterCompanyProvider
+export default SignupProvider
