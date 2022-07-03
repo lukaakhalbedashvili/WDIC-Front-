@@ -1,5 +1,5 @@
 import { useRef } from "react"
-import { decodeVinApiCall } from "./apiCalls"
+import { decodeVinApiCall } from "src/utils/apiCalls"
 
 const useRegisterRoute = () => {
   const VinInputRef = useRef<HTMLInputElement>(null)
