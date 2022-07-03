@@ -1,5 +1,5 @@
 import { useContext, useEffect, useRef } from "react"
-import { contextRG } from "src/components/AuthFrame/context/signupContext"
+import { contextRG } from "src/components/SignUpFrame/context/signupContext"
 import useFormikSchema from "src/hooks/useFormikHook"
 import useSessionValidation from "src/hooks/useSessionValidation"
 import useSetCurForm from "src/hooks/useSetCurForm"
@@ -13,7 +13,8 @@ const useSignUp = () => {
     { image: googleIcon, redirectTo: "google" },
     { image: facebookIcon, redirectTo: "facebook" },
   ]
-  const { setErrors, singUpInputs } = useContext(contextRG)
+
+  const { setErrors, singUpInputs, setIsSUFormTouched } = useContext(contextRG)
   const formSubmitBTN = useRef<HTMLButtonElement>(null)
   const { signUpValidation } = useFormikSchema()
   const formik = signUpValidation
@@ -24,7 +25,13 @@ const useSignUp = () => {
     }
   }, [formik.errors, setErrors])
   useSetCurForm(formSubmitBTN.current)
-  return { socialIcons, singUpInputs, formik, formSubmitBTN }
+  return {
+    socialIcons,
+    singUpInputs,
+    formik,
+    formSubmitBTN,
+    setIsSUFormTouched,
+  }
 }
 
 export default useSignUp

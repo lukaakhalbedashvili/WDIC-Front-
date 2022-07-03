@@ -1,5 +1,5 @@
-import Styles from "./RegisterStage.module.scss"
-import { contextRG } from "../context/signupContext"
+import Styles from "./SignUpStages.module.scss"
+import { contextRG } from "../SignUpFrame/context/signupContext"
 import classNames from "classnames"
 import { useContext } from "react"
 import { MdDone } from "react-icons/md"

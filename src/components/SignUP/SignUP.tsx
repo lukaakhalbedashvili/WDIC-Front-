@@ -5,7 +5,13 @@ import { signIn } from "next-auth/react"
 import useSignUp from "./useSignUp"
 
 const SignUP: React.FC = () => {
-  const { socialIcons, singUpInputs, formik, formSubmitBTN } = useSignUp()
+  const {
+    socialIcons,
+    singUpInputs,
+    formik,
+    formSubmitBTN,
+    setIsSUFormTouched,
+  } = useSignUp()
   return (
     <div className={Styles.main}>
       <form
@@ -16,6 +22,7 @@ const SignUP: React.FC = () => {
         {singUpInputs.map(item => {
           const inputErrorStatus =
             formik.touched[item.name] && formik.errors[item.name]
+
           return (
             <div key={item.name}>
               <Input
@@ -25,7 +32,9 @@ const SignUP: React.FC = () => {
                 type={item.type}
                 value={formik.values[item.name]}
                 onChange={formik.handleChange}
+                onClick={() => setIsSUFormTouched(true)}
                 onBlur={formik.handleBlur}
+                controled={true}
               />
             </div>
           )

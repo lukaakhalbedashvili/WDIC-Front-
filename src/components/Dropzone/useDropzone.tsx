@@ -1,6 +1,6 @@
 import { useDropzone as useDropzoneLibrary } from "react-dropzone"
 import React, { useCallback, useContext, useState } from "react"
-import { contextRG } from "src/components/AuthFrame/context/signupContext"
+import { contextRG } from "src/components/SignUpFrame/context/signupContext"
 
 const useDropzone = () => {
   const {

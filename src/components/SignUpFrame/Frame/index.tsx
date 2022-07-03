@@ -1,10 +1,10 @@
-import Styles from "./AuthFrame.module.scss"
+import Styles from "./Frame.module.scss"
 import Image from "next/image"
-import RegisterStage from "../RegisterStage/RegisterStage"
+import SignUpStages from "../../SignUpStages"
 import SuccessButton from "src/library/SuccessButton"
 import BackButton from "src/library/BackButton"
 import useRegisterCompanyFrame from "./useAuthFrameFrame"
-const RegisterCompanyFrame: React.FC = ({ children }) => {
+const Index: React.FC = ({ children }) => {
   const {
     sideFrameIMG,
     index,
@@ -30,7 +30,7 @@ const RegisterCompanyFrame: React.FC = ({ children }) => {
         />
       </div>
       <div className={Styles.content}>
-        <RegisterStage />
+        <SignUpStages />
         <h3 className={Styles.stageTitle}>{stages[index]}</h3>
         <div className={Styles.children}>{children}</div>
         <div className={Styles.ButtonsWrapper}>
@@ -58,4 +58,4 @@ const RegisterCompanyFrame: React.FC = ({ children }) => {
     </div>
   )
 }
-export default RegisterCompanyFrame
+export default Index
